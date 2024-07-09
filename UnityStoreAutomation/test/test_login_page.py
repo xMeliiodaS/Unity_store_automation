@@ -11,6 +11,12 @@ class TestLoginPage(unittest.TestCase):
 
     # Before all - Called automatically
     def setUp(self):
+        """
+        Set up the test environment before each test.
+
+        This method initializes the browser, loads the configuration,
+        and navigates to the specified URL.
+        """
         # Initialize the undetected ChromeDriver
         self.browser = BrowserWrapper()
         self.config = ConfigProvider.load_config_json()
@@ -18,6 +24,9 @@ class TestLoginPage(unittest.TestCase):
         self.home_page = HomePage(self.driver)
 
     def test_login_successful(self):
+        """
+        Test the login functionality with valid credentials.
+        """
         # Arrange
         self.home_page.click_on_account_button()
         time.sleep(2)

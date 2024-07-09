@@ -5,12 +5,24 @@ import undetected_chromedriver as uc
 
 
 class BrowserWrapper:
+    """
+    Wrapper class for managing browser interactions using Selenium WebDriver.
+    """
 
     def __init__(self):
+        """
+        Initialize the BrowserWrapper and load the configuration.
+        """
         self._driver = None
         self.config = ConfigProvider().load_config_json()
 
     def get_driver(self, url):
+        """
+        Initialize the WebDriver based on the configuration and navigate to the specified URL.
+
+        :param url: The URL to navigate to.
+        :return: The WebDriver instance.
+        """
         try:
             options = uc.ChromeOptions()
             options.add_argument("--disable-blink-features=AutomationControlled")
@@ -27,5 +39,8 @@ class BrowserWrapper:
             print("Could not find web driver:", e)
 
     def close_browser(self):
+        """
+        Close the browser and quit the WebDriver.
+        """
         self._driver.quit()
         print("Test done")
