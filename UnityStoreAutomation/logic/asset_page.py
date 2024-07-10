@@ -21,13 +21,14 @@ class AssetPage(BaseAppPage):
 
     def get_asset_title(self):
         """
+        Get the title of the asset.
         """
         return WebDriverWait(self._driver, 5).until(
             EC.presence_of_element_located((By.XPATH, self.ASSET_TITLE))).text
 
     def add_asset_to_cart_flow(self):
         """
-        Add asset to the cart, then view the cart.
+        Adds the asset to the cart and then view the cart.
         """
         self.click_on_add_to_cart_button()
         self.click_view_cart_button()

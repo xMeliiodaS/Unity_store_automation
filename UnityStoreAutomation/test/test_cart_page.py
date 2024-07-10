@@ -28,7 +28,6 @@ class TestCartPage(unittest.TestCase):
 
     def tearDown(self) -> None:
         self.cart_page = CartPage(self.driver)
-        self.cart_page.click_on_cart_button()
         self.cart_page.click_remove_asset_from_cart_button()
         time.sleep(5)
         self.driver.quit()

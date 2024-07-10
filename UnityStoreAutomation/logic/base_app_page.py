@@ -71,6 +71,7 @@ class BaseAppPage(BasePage):
 
     def click_on_cart_button(self):
         """
+        Clicks on the cart button to view the cart.
         """
         element = WebDriverWait(self._driver, 5).until(
             EC.presence_of_element_located((By.XPATH, self.CART_BUTTON)))
@@ -78,6 +79,7 @@ class BaseAppPage(BasePage):
 
     def click_view_cart_button(self):
         """
+        Clicks on the view cart button to go to the cart page.
         """
         element = WebDriverWait(self._driver, 5).until(
             EC.presence_of_element_located((By.XPATH, self.VIEW_CART_BUTTON)))
@@ -85,7 +87,8 @@ class BaseAppPage(BasePage):
 
     def click_remove_asset_from_cart_button(self):
         """
+        Clicks on the remove asset button to remove an item from the cart.
         """
         element = WebDriverWait(self._driver, 5).until(
-            EC.presence_of_element_located((By.XPATH, self.REMOVE_ASSET_FROM_CART_BUTTON)))
+            EC.element_to_be_clickable((By.XPATH, self.REMOVE_ASSET_FROM_CART_BUTTON)))
         element.click()
