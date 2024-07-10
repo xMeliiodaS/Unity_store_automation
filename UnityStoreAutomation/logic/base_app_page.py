@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.common.by import By
 from infra.base_page import BasePage
 from selenium.webdriver.support.wait import WebDriverWait
@@ -92,3 +94,4 @@ class BaseAppPage(BasePage):
         element = WebDriverWait(self._driver, 5).until(
             EC.element_to_be_clickable((By.XPATH, self.REMOVE_ASSET_FROM_CART_BUTTON)))
         element.click()
+        time.sleep(3)
