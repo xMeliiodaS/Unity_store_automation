@@ -17,3 +17,10 @@ class Utils:
         """
         unique_id = ''.join(random.choices(string.ascii_letters + string.digits, k=8))
         return f"{base_comment} {unique_id}"
+
+    @staticmethod
+    def generate_random_number():
+        """
+        Generates a random number between 1 and 7 (inclusive).
+        """
+        return random.randint(1, 7)

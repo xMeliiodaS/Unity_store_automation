@@ -17,8 +17,6 @@ class LoginPage(BasePage):
         :param driver: The WebDriver instance to use for browser interactions.
         """
         super().__init__(driver)
-        # self._email_input = self._driver.find_element(By.XPATH, self.EMAIL_INPUT)
-        # self._password_input = self._driver.find_element(By.XPATH, self.PASSWORD_INPUT)
 
     def fill_username_input(self, username):
         """

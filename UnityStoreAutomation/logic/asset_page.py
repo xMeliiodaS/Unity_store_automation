@@ -2,11 +2,13 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from logic.base_app_page import BaseAppPage
+from logic.home_page import HomePage
 
 
 class AssetPage(BaseAppPage):
     ADD_TO_CART_BUTTON = '//div[@id="product-detail-add-to-cart-button-v2"]'
     ASSET_TITLE = '//h1'
+    CATEGORIES_LIST = '//a[@class="zJTLn breadcrumb-nav-element"]'
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -32,3 +34,13 @@ class AssetPage(BaseAppPage):
         """
         self.click_on_add_to_cart_button()
         self.click_view_cart_button()
+
+    def get_asset_path_categories_list_names(self):
+        """
+        Returns a list of asset path categories names.
+        """
+        elements = WebDriverWait(self._driver, 5).until(
+            EC.presence_of_all_elements_located((By.XPATH, self.CATEGORIES_LIST))
+        )
+        category_names = [element.text for element in elements]
+        return category_names
