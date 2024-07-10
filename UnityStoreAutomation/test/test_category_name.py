@@ -35,7 +35,6 @@ class TestCategory(unittest.TestCase):
         category_name = home_page.get_random_category_text()
         home_page.click_on_category_by_name(category_name)
 
-        home_page = HomePage(self.driver)
         home_page.click_on_asset_link()
 
         # Act

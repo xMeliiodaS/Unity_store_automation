@@ -24,3 +24,12 @@ class Utils:
         Generates a random number between 1 and 7 (inclusive).
         """
         return random.randint(1, 7)
+
+    @staticmethod
+    def wait_for_element(action, expected, time, retries):
+        result = action
+        while result != expected and retries > 0:
+            time.sleep(time)
+            retries = retries - 1
+            result = action
+        return result

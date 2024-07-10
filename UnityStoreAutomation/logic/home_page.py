@@ -19,18 +19,10 @@ class HomePage(BaseAppPage):
         """
         Click on the asset link.
         """
+        time.sleep(3)
         self._element = WebDriverWait(self._driver, 8).until(
             EC.element_to_be_clickable((By.XPATH, self.ASSET_LINK)))
         self._element.click()
-
-    # def click_on_random_category(self):
-    #     """
-    #     Clicks on a random category and returns its name.
-    #     """
-    #     elements = WebDriverWait(self._driver, 5).until(
-    #         EC.presence_of_all_elements_located((By.XPATH, self.SUB_CATEGORIES)))
-    #
-    #     elements[random_index].click()
 
     def click_on_category_by_name(self, name):
         """
@@ -43,7 +35,5 @@ class HomePage(BaseAppPage):
     def get_random_category_text(self):
         random_index = Utils.generate_random_number() - 1
         elements = WebDriverWait(self._driver, 5).until(
-                 EC.presence_of_all_elements_located((By.XPATH, self.SUB_CATEGORIES)))
+            EC.presence_of_all_elements_located((By.XPATH, self.SUB_CATEGORIES)))
         return elements[random_index].text
-
-
