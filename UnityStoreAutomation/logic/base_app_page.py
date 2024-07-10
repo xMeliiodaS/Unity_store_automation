@@ -4,12 +4,14 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-class PaseAppPage(BasePage):
+class BaseAppPage(BasePage):
     ACCOUNT_BUTTON = '//button[@class="button right-nav-element"]'
     SIGN_IN_BUTTON = '//div[@class="_2zqSQ"]'
     Three_D_BUTTON = '(//div[text() = "3D"])[1]'
     MY_ASSETS_BUTTON = '//button[@class="_3-jib assets right-nav-element"]'
     SAVED_ASSETS_BUTTON = '//button[@class="_3-jib favs right-nav-element"]'
+    CART_BUTTON = '//button[contains(@class, "cartMini")]'
+    REMOVE_ASSET_FROM_CART_BUTTON = '//button[@label="Remove"]'
 
     def __init__(self, driver):
         """
@@ -68,4 +70,20 @@ class PaseAppPage(BasePage):
         """
         element = WebDriverWait(self._driver, 5).until(
             EC.presence_of_element_located((By.XPATH, self.SAVED_ASSETS_BUTTON)))
+        element.click()
+
+    def click_on_cart_button(self):
+        """
+        Click on the 3D button.
+        """
+        element = WebDriverWait(self._driver, 5).until(
+            EC.presence_of_element_located((By.XPATH, self.CART_BUTTON)))
+        element.click()
+
+    def click_remove_asset_from_cart_button(self):
+        """
+        Click on the 3D button.
+        """
+        element = WebDriverWait(self._driver, 5).until(
+            EC.presence_of_element_located((By.XPATH, self.REMOVE_ASSET_FROM_CART_BUTTON)))
         element.click()
