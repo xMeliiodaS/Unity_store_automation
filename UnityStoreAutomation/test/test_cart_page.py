@@ -25,6 +25,7 @@ class TestCartPage(unittest.TestCase):
 
         self.login_page = LoginPage(self.driver)
         self.login_page.login_flow(self.config)
+        self.home_page = HomePage(self.driver)
 
     def tearDown(self) -> None:
         self.cart_page = CartPage(self.driver)
@@ -36,7 +37,6 @@ class TestCartPage(unittest.TestCase):
         Test the login functionality with valid credentials.
         """
         # Arrange
-        self.home_page = HomePage(self.driver)
         self.home_page.click_on_asset_link()
         asset_page = AssetPage(self.driver)
         asset_title = asset_page.get_asset_title()

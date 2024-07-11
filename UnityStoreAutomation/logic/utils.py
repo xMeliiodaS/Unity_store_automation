@@ -1,5 +1,6 @@
 import random
 import string
+import time
 
 
 class Utils:
@@ -26,10 +27,11 @@ class Utils:
         return random.randint(1, 7)
 
     @staticmethod
-    def wait_for_element(action, expected, time, retries):
+    def wait_for_element(action, expected, timee, retries):
         result = action
         while result != expected and retries > 0:
-            time.sleep(time)
+            time.sleep(timee)
             retries = retries - 1
             result = action
         return result
+

@@ -3,6 +3,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from logic.base_app_page import BaseAppPage
 from logic.home_page import HomePage
+from logic.utils import Utils
 
 
 class AssetPage(BaseAppPage):
@@ -12,6 +13,7 @@ class AssetPage(BaseAppPage):
 
     def __init__(self, driver):
         super().__init__(driver)
+        self._driver.execute_script("window.scrollBy(0, 400);")
 
     def click_on_add_to_cart_button(self):
         """
@@ -19,6 +21,7 @@ class AssetPage(BaseAppPage):
         """
         element = WebDriverWait(self._driver, 5).until(
             EC.presence_of_element_located((By.XPATH, self.ADD_TO_CART_BUTTON)))
+        self.scroll_to_element(element)
         element.click()
 
     def get_asset_title(self):

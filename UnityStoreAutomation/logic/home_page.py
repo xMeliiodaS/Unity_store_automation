@@ -13,16 +13,15 @@ class HomePage(BaseAppPage):
 
     def __init__(self, driver):
         super().__init__(driver)
-        self._element = None
 
     def click_on_asset_link(self):
         """
         Click on the asset link.
         """
-        time.sleep(3)
-        self._element = WebDriverWait(self._driver, 8).until(
+        element = WebDriverWait(self._driver, 8).until(
             EC.element_to_be_clickable((By.XPATH, self.ASSET_LINK)))
-        self._element.click()
+        self.scroll_to_element(element)
+        element.click()
 
     def click_on_category_by_name(self, name):
         """

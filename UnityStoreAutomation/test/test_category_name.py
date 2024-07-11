@@ -1,10 +1,7 @@
-import time
 import unittest
-
 from infra.browser_wrapper import BrowserWrapper
 from infra.config_provider import ConfigProvider
 from logic.asset_page import AssetPage
-from logic.cart_page import CartPage
 from logic.home_page import HomePage
 from logic.login_page import LoginPage
 
@@ -25,13 +22,14 @@ class TestCategory(unittest.TestCase):
 
         self.login_page = LoginPage(self.driver)
         self.login_page.login_flow(self.config)
+        home_page = HomePage(self.driver)
 
     def test_category_name_exist(self):
         """
         Test the login functionality with valid credentials.
         """
         # Arrange
-        home_page = HomePage(self.driver)
+
         category_name = home_page.get_random_category_text()
         home_page.click_on_category_by_name(category_name)
 

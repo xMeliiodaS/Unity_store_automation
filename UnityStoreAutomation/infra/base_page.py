@@ -18,10 +18,11 @@ class BasePage:
         """
         self._driver.reload()
 
-    def scroll(self, amount_to_scroll):
+    def scroll_to_element(self, element):
         """
-        Scroll down the current page by 500 pixels.
+        Scroll the specified element into view.
 
-        :param amount_to_scroll: The scroll amount in pixels.
+        :param element: The WebElement to scroll into view.
         """
-        self._driver.execute_script(f"window.scrollBy(0, {amount_to_scroll});")
+        self._driver.execute_script("arguments[0].scrollIntoView(true);", element)
+

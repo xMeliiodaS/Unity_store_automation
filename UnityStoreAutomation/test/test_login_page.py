@@ -23,13 +23,15 @@ class TestLoginPage(unittest.TestCase):
         self.driver = self.browser.get_driver(self.config["url"])
         self.home_page = HomePage(self.driver)
 
+    def tearDown(self) -> None:
+        self.driver.quit()
+
     def test_login_successful(self):
         """
         Test the login functionality with valid credentials.
         """
         # Arrange
         self.home_page.click_on_account_button()
-        time.sleep(2)
         self.home_page.click_on_sign_in_button()
 
         # Act
@@ -37,11 +39,9 @@ class TestLoginPage(unittest.TestCase):
         login_page.fill_username_input(self.config["email"])
         login_page.fill_password_input(self.config["password"])
         login_page.click_on_sign_in_button()
-        time.sleep(5)
 
         # Assert
         self.assertEqual(self.driver.current_url, "https://assetstore.unity.com/3d")
-        self.driver.quit()
 
 
 if __name__ == "__main__":
