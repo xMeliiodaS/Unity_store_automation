@@ -9,12 +9,12 @@ from selenium.webdriver.support import expected_conditions as EC
 class BaseAppPage(BasePage):
     ACCOUNT_BUTTON = '//button[@class="button right-nav-element"]'
     SIGN_IN_BUTTON = '//div[@class="_2zqSQ"]'
-    Three_D_BUTTON = '(//div[text() = "3D"])[1]'
     MY_ASSETS_BUTTON = '//button[@class="_3-jib assets right-nav-element"]'
     SAVED_ASSETS_BUTTON = '//button[@class="_3-jib favs right-nav-element"]'
     CART_BUTTON = '//button[contains(@class, "cartMini")]'
     VIEW_CART_BUTTON = '//button[@label="View cart"]'
     REMOVE_ASSET_FROM_CART_BUTTON = '//button[@label="Remove"]'
+    PERSONAL_SETTINGS = '//div[text() = "Personal Settings"]'
 
     def __init__(self, driver):
         """
@@ -43,16 +43,6 @@ class BaseAppPage(BasePage):
         """
         element = WebDriverWait(self._driver, 8).until(
             EC.element_to_be_clickable((By.XPATH, self.SIGN_IN_BUTTON)))
-        element.click()
-
-    def click_on_three_d_button(self):
-        """
-        Click on the 3D button.
-
-        This method waits for the 3D button to be present and then clicks on it.
-        """
-        element = WebDriverWait(self._driver, 5).until(
-            EC.presence_of_element_located((By.XPATH, self.Three_D_BUTTON)))
         element.click()
 
     def click_on_my_assets_button(self):
@@ -95,3 +85,11 @@ class BaseAppPage(BasePage):
             EC.element_to_be_clickable((By.XPATH, self.REMOVE_ASSET_FROM_CART_BUTTON)))
         element.click()
         time.sleep(3)
+
+    def click_on_personal_settings_button(self):
+        """
+        Clicks on the personal settings button to go to the account settings.
+        """
+        element = WebDriverWait(self._driver, 5).until(
+            EC.presence_of_element_located((By.XPATH, self.PERSONAL_SETTINGS)))
+        element.click()

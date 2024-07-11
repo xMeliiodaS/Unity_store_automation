@@ -14,7 +14,7 @@ class ConfigProvider:
         :return: The loaded configuration as a dictionary.
         """
         try:
-            with open('D:\\Users\\User\\Desktop\\config\\config.json', 'r') as f:
+            with open('../config.json', 'r') as f:
                 return json.load(f)
         except FileNotFoundError:
             print(f"File not found. Starting with an empty library.")

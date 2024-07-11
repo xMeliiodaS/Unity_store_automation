@@ -31,18 +31,28 @@ class TestLoginPage(unittest.TestCase):
         Test the login functionality with valid credentials.
         """
         # Arrange
-        self.home_page.click_on_account_button()
-        self.home_page.click_on_sign_in_button()
         login_page = LoginPage(self.driver)
 
         # Act
-        login_page.login_flow(self.config)
-        #   login_page.fill_username_input(self.config["email"])
-        #   login_page.fill_password_input(self.config["password"])
+        login_page.login_flow(self.config["email"], self.config["password"])
         login_page.click_on_sign_in_button()
 
         # Assert
         self.assertEqual(self.driver.current_url, "https://assetstore.unity.com/3d")
+
+    def test_login_unsuccessful(self):
+        """
+        Test the login functionality with valid credentials.
+        """
+        # Arrange
+        login_page = LoginPage(self.driver)
+
+        # Act
+        login_page.login_flow(self.config["email"], self.config["incorrectpassword"])
+        login_page.click_on_sign_in_button()
+
+        # Assert
+        self.assertNotEqual(self.driver.current_url, "https://assetstore.unity.com/3d")
 
 
 if __name__ == "__main__":

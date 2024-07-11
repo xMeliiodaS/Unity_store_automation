@@ -44,19 +44,20 @@ class LoginPage(BasePage):
         This method waits for the sign-in button to be present and then clicks on it.
         """
         element = WebDriverWait(self._driver, 5).until(
-            EC.presence_of_element_located((By.XPATH, self.SIGN_IN_BUTTON)))
+            EC.element_to_be_clickable((By.XPATH, self.SIGN_IN_BUTTON)))
         element.click()
 
-    def login_flow(self, config):
+    def login_flow(self, username, password):
         """
         Perform the login flow using the provided configuration.
 
-        :param config: The username to enter into the email input field.
+        :param password:
+        :param username:
         """
         home_page = HomePage(self._driver)
         home_page.click_on_account_button()
         home_page.click_on_sign_in_button()
 
-        self.fill_username_input(config["email"])
-        self.fill_password_input(config["password"])
+        self.fill_username_input(username)
+        self.fill_password_input(password)
         self.click_on_sign_in_button()
