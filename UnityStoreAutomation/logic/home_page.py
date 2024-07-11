@@ -10,6 +10,7 @@ from logic.utils import Utils
 class HomePage(BaseAppPage):
     ASSET_LINK = '(//div[@data-test="package-title"])[2]'
     SUB_CATEGORIES = '//a[@class="_1oxj5"]'
+    FREE_ASSETS_BUTTON = '//span[text() = "Free Assets"]'
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -36,3 +37,11 @@ class HomePage(BaseAppPage):
         elements = WebDriverWait(self._driver, 5).until(
             EC.presence_of_all_elements_located((By.XPATH, self.SUB_CATEGORIES)))
         return elements[random_index].text
+
+    def click_on_free_assets_button(self):
+        """
+        Clicks on a random category and returns its name.
+        """
+        element = WebDriverWait(self._driver, 5).until(
+            EC.presence_of_element_located((By.XPATH, self.FREE_ASSETS_BUTTON)))
+        element.click()

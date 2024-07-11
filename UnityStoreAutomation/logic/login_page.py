@@ -34,9 +34,8 @@ class LoginPage(BasePage):
 
         :param password: The password to enter into the password input field.
         """
-        element = WebDriverWait(self._driver, 5).until(
-            EC.presence_of_element_located((By.XPATH, self.PASSWORD_INPUT)))
-        element.send_keys(password)
+        WebDriverWait(self._driver, 5).until(
+            EC.presence_of_element_located((By.XPATH, self.PASSWORD_INPUT))).send_keys(password)
 
     def click_on_sign_in_button(self):
         """
@@ -48,13 +47,13 @@ class LoginPage(BasePage):
             EC.presence_of_element_located((By.XPATH, self.SIGN_IN_BUTTON)))
         element.click()
 
-    def login_flow(self, config):
+    def login_flow(self, config, home_page):
         """
         Perform the login flow using the provided configuration.
 
+        :param home_page: Instance to the home page.
         :param config: The username to enter into the email input field.
         """
-        home_page = HomePage(self._driver)
         home_page.click_on_account_button()
         home_page.click_on_sign_in_button()
 

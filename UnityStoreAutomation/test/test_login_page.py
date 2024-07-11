@@ -33,11 +33,12 @@ class TestLoginPage(unittest.TestCase):
         # Arrange
         self.home_page.click_on_account_button()
         self.home_page.click_on_sign_in_button()
+        login_page = LoginPage(self.driver)
 
         # Act
-        login_page = LoginPage(self.driver)
-        login_page.fill_username_input(self.config["email"])
-        login_page.fill_password_input(self.config["password"])
+        login_page.login_flow(self.config, login_page)
+        #   login_page.fill_username_input(self.config["email"])
+        #   login_page.fill_password_input(self.config["password"])
         login_page.click_on_sign_in_button()
 
         # Assert
