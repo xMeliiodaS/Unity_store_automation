@@ -34,7 +34,7 @@ class TestEditBio(unittest.TestCase):
         self.cart_page.click_remove_asset_from_cart_button()
         self.driver.quit()
 
-    def test_add_to_cart_successful(self):
+    def test_edit_bio_successful(self):
         """
         Test the login functionality with valid credentials.
         """

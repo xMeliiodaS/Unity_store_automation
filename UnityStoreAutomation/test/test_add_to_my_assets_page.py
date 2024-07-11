@@ -30,7 +30,7 @@ class TestAddToMyAssetsPage(unittest.TestCase):
         self.asset_page = AssetPage(self.driver)
         self.asset_name = self.asset_page.get_asset_title()
 
-    def test_category_name_exist(self):
+    def test_add_asset_to_my_assets_successful(self):
         """
         Test the login functionality with valid credentials.
         """

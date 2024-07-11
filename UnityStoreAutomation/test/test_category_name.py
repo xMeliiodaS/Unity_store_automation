@@ -38,6 +38,7 @@ class TestCategory(unittest.TestCase):
         # Act
         asset_page = AssetPage(self.driver)
         categories_list = asset_page.get_asset_path_categories_list_names()
+
         # Assert
         self.assertIn(category_name, categories_list)
 
