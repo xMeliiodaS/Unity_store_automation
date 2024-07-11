@@ -43,7 +43,7 @@ class TestEditBio(unittest.TestCase):
         personal_settings_page.click_on_edit_bio_button()
 
         # Act
-        text_to_insert = 'Hii Guys 243'
+        text_to_insert = self.config["bio_text"]
         personal_settings_page.fill_bio_input(text_to_insert)
         personal_settings_page.click_on_save_bio_button()
         current_text_in_bio = personal_settings_page.get_current_bio_text()
