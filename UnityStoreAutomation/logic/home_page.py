@@ -93,3 +93,14 @@ class HomePage(BaseAppPage):
         """
         WebDriverWait(self._driver, 10).until(
             EC.presence_of_element_located((By.XPATH, self.SAVE_TO_FAVORITE_BUTTON))).click()
+
+    def free_asset_navigation_flow(self, asset_index):
+        """
+        Navigates through the pricing section, then the free assets section,
+        and finally clicks on an asset link by index.
+
+        :param asset_index: The index of the asset link to be clicked.
+        """
+        self.click_on_pricing_button()
+        self.click_on_free_assets_button()
+        self.click_on_asset_link_by_index(asset_index)

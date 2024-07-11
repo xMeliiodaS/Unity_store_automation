@@ -72,12 +72,10 @@ class AssetPage(BaseAppPage):
         time.sleep(2)
         element.click()
 
-    # def click_on_go_to_my_assets_button(self):
-    #     """
-    #     Clicks on a random category and returns its name.
-    #     """
-    #     element = WebDriverWait(self._driver, 10).until(
-    #         EC.element_to_be_clickable((By.XPATH, self.GO_TO_MY_ASSETS)))
-    #     time.sleep(2)
-    #     element.click()
-
+    def add_and_view_my_assets_flow(self):
+        """
+        Performs the flow of adding an asset to 'My Assets' and then viewing 'My Assets'.
+        """
+        self.click_on_add_to_my_assets_button()
+        self.click_on_accept_to_my_assets_button()
+        self.click_on_my_assets_button()

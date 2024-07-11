@@ -24,30 +24,26 @@ class TestAddToMyAssetsPage(unittest.TestCase):
 
         self.login_page = LoginPage(self.driver)
         self.login_page.login_flow(self.config)
+
         self.home_page = HomePage(self.driver)
+        self.home_page.free_asset_navigation_flow(1)
+
+        self.asset_page = AssetPage(self.driver)
+        self.asset_name = self.asset_page.get_asset_title()
 
     def test_category_name_exist(self):
         """
         Test the login functionality with valid credentials.
         """
         # Arrange
-        self.home_page.click_on_pricing_button()
-        self.home_page.click_on_free_assets_button()
-        self.home_page.click_on_asset_link_by_index(1)
-
-        asset_page = AssetPage(self.driver)
-        asset_name = asset_page.get_asset_title()
-
-        asset_page.click_on_add_to_my_assets_button()
-        asset_page.click_on_accept_to_my_assets_button()
-        asset_page.click_on_my_assets_button()
-        my_assets_page = MyAssetsPage(self.driver)
+        self.asset_page.add_asset_to_cart_flow()
 
         # Act
+        my_assets_page = MyAssetsPage(self.driver)
         assets_name_list = my_assets_page.get_assets_name()
 
         # Assert
-        self.assertIn(asset_name, assets_name_list)
+        self.assertIn(self.asset_name, assets_name_list)
 
 
 if __name__ == "__main__":
