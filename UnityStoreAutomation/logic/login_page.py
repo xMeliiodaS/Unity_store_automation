@@ -47,13 +47,13 @@ class LoginPage(BasePage):
             EC.presence_of_element_located((By.XPATH, self.SIGN_IN_BUTTON)))
         element.click()
 
-    def login_flow(self, config, home_page):
+    def login_flow(self, config):
         """
         Perform the login flow using the provided configuration.
 
-        :param home_page: Instance to the home page.
         :param config: The username to enter into the email input field.
         """
+        home_page = HomePage(self._driver)
         home_page.click_on_account_button()
         home_page.click_on_sign_in_button()
 

@@ -16,13 +16,21 @@ class BasePage:
         """
         Refresh the current page.
         """
-        self._driver.reload()
+        self._driver.refresh()
 
     def scroll_to_element(self, element):
         """
-        Scroll the specified element into view.
+        Scroll the specified element into view and center it in the middle of the screen.
 
         :param element: The WebElement to scroll into view.
         """
-        self._driver.execute_script("arguments[0].scrollIntoView(true);", element)
+        self._driver.execute_script("""
+            var element = arguments[0];
+            element.scrollIntoView({
+                block: 'center',
+                behavior: 'smooth'
+            });
+        """, element)
+
+
 

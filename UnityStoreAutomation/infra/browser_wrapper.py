@@ -1,3 +1,5 @@
+import time
+
 from selenium import webdriver
 from infra.config_provider import ConfigProvider
 from selenium import common as c
@@ -34,6 +36,8 @@ class BrowserWrapper:
                 print("Browser does not exist")
 
             self._driver.get(url)
+            # Adjust the zoom level of the page
+
             return self._driver
         except c.WebDriverException as e:
             print("Could not find web driver:", e)

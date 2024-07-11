@@ -36,7 +36,7 @@ class TestLoginPage(unittest.TestCase):
         login_page = LoginPage(self.driver)
 
         # Act
-        login_page.login_flow(self.config, login_page)
+        login_page.login_flow(self.config)
         #   login_page.fill_username_input(self.config["email"])
         #   login_page.fill_password_input(self.config["password"])
         login_page.click_on_sign_in_button()

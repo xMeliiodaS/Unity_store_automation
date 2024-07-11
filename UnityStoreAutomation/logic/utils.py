@@ -27,10 +27,10 @@ class Utils:
         return random.randint(1, 7)
 
     @staticmethod
-    def wait_for_element(action, expected, timee, retries):
+    def wait_for_element(action, expected, time_to_sleep, retries):
         result = action
         while result != expected and retries > 0:
-            time.sleep(timee)
+            time.sleep(time_to_sleep)
             retries = retries - 1
             result = action
         return result

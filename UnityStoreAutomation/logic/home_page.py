@@ -8,9 +8,15 @@ from logic.utils import Utils
 
 
 class HomePage(BaseAppPage):
-    ASSET_LINK = '(//div[@data-test="package-title"])[2]'
+    ASSET_LINK = '(//div[@data-test="package-title"])[3]'
     SUB_CATEGORIES = '//a[@class="_1oxj5"]'
+
+    PRICING_BUTTON = '//strong[text() = "Pricing"]'
     FREE_ASSETS_BUTTON = '//span[text() = "Free Assets"]'
+
+    ADD_TO_FAVORITE_ICON = '(//button[@class="_2wt5x normal _29YX2"])[2]'
+    FAVORITES_BUTTON = '//div[text() = "Favorites"]'
+    SAVE_TO_FAVORITE_BUTTON = '//div[text() = "Save"]'
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -21,6 +27,15 @@ class HomePage(BaseAppPage):
         """
         element = WebDriverWait(self._driver, 8).until(
             EC.element_to_be_clickable((By.XPATH, self.ASSET_LINK)))
+        self.scroll_to_element(element)
+        element.click()
+
+    def click_on_asset_link_by_index(self, index):
+        """
+        Click on the asset link.
+        """
+        element = WebDriverWait(self._driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, f'(//div[@data-test="package-title"])[{index}]')))
         self.scroll_to_element(element)
         element.click()
 
@@ -38,10 +53,43 @@ class HomePage(BaseAppPage):
             EC.presence_of_all_elements_located((By.XPATH, self.SUB_CATEGORIES)))
         return elements[random_index].text
 
+    def click_on_pricing_button(self):
+        """
+        Clicks on a random category and returns its name.
+        """
+        element = WebDriverWait(self._driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, self.PRICING_BUTTON)))
+        self.scroll_to_element(element)
+        element.click()
+
     def click_on_free_assets_button(self):
         """
         Clicks on a random category and returns its name.
         """
-        element = WebDriverWait(self._driver, 5).until(
-            EC.presence_of_element_located((By.XPATH, self.FREE_ASSETS_BUTTON)))
+        element = WebDriverWait(self._driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, self.FREE_ASSETS_BUTTON)))
         element.click()
+        time.sleep(4)
+
+
+
+    def click_on_add_to_favorites_icon(self):
+        """
+        Clicks on a random category and returns its name.
+        """
+        WebDriverWait(self._driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, self.ADD_TO_FAVORITE_ICON))).click()
+
+    def click_on_favorites_button(self):
+        """
+        Clicks on a random category and returns its name.
+        """
+        WebDriverWait(self._driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, self.FAVORITES_BUTTON))).click()
+
+    def click_on_save_to_favorites_button(self):
+        """
+        Clicks on a random category and returns its name.
+        """
+        WebDriverWait(self._driver, 10).until(
+            EC.presence_of_element_located((By.XPATH, self.SAVE_TO_FAVORITE_BUTTON))).click()

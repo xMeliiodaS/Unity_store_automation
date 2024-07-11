@@ -1,12 +1,14 @@
+import time
 import unittest
 from infra.browser_wrapper import BrowserWrapper
 from infra.config_provider import ConfigProvider
 from logic.asset_page import AssetPage
 from logic.home_page import HomePage
 from logic.login_page import LoginPage
+from logic.my_assets_page import MyAssetsPage
 
 
-class TestCategory(unittest.TestCase):
+class TestAddToMyAssetsPage(unittest.TestCase):
 
     # Before all - Called automatically
     def setUp(self):
@@ -29,17 +31,23 @@ class TestCategory(unittest.TestCase):
         Test the login functionality with valid credentials.
         """
         # Arrange
+        self.home_page.click_on_pricing_button()
+        self.home_page.click_on_free_assets_button()
+        self.home_page.click_on_asset_link_by_index(1)
 
-        category_name = self.home_page.get_random_category_text()
-        self.home_page.click_on_category_by_name(category_name)
+        asset_page = AssetPage(self.driver)
+        asset_name = asset_page.get_asset_title()
 
-        self.home_page.click_on_asset_link()
+        asset_page.click_on_add_to_my_assets_button()
+        asset_page.click_on_accept_to_my_assets_button()
+        asset_page.click_on_my_assets_button()
+        my_assets_page = MyAssetsPage(self.driver)
 
         # Act
-        asset_page = AssetPage(self.driver)
-        categories_list = asset_page.get_asset_path_categories_list_names()
+        assets_name_list = my_assets_page.get_assets_name()
+
         # Assert
-        self.assertIn(category_name, categories_list)
+        self.assertIn(asset_name, assets_name_list)
 
 
 if __name__ == "__main__":
