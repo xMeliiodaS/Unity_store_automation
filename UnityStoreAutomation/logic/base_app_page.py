@@ -15,6 +15,7 @@ class BaseAppPage(BasePage):
     VIEW_CART_BUTTON = '//button[@label="View cart"]'
     REMOVE_ASSET_FROM_CART_BUTTON = '//button[@label="Remove"]'
     PERSONAL_SETTINGS = '//div[text() = "Personal Settings"]'
+    LOGOUT = '//div[text() ="Sign Out"]'
 
     def __init__(self, driver):
         """
@@ -93,3 +94,8 @@ class BaseAppPage(BasePage):
         element = WebDriverWait(self._driver, 5).until(
             EC.presence_of_element_located((By.XPATH, self.PERSONAL_SETTINGS)))
         element.click()
+
+    def is_logout_displayed(self):
+        time.sleep(1)
+        return WebDriverWait(self._driver, 5).until(
+            EC.presence_of_element_located((By.XPATH, self.LOGOUT))).is_displayed()

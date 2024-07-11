@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -9,6 +11,7 @@ class LoginPage(BasePage):
     EMAIL_INPUT = '//input[@type="email"]'
     PASSWORD_INPUT = '//input[@type="password"]'
     SIGN_IN_BUTTON = '//input[@value="Sign in"]'
+    ERROR_MESSAGE = '//div[@class="error-msg"]'
 
     def __init__(self, driver):
         """
@@ -61,3 +64,9 @@ class LoginPage(BasePage):
         self.fill_username_input(username)
         self.fill_password_input(password)
         self.click_on_sign_in_button()
+
+    def is_logout_displayed(self):
+        time.sleep(1)
+        return WebDriverWait(self._driver, 5).until(
+            EC.presence_of_element_located((By.XPATH, self.ERROR_MESSAGE))).is_displayed()
+

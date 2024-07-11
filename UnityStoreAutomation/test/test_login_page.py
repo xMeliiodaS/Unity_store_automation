@@ -35,10 +35,10 @@ class TestLoginPage(unittest.TestCase):
 
         # Act
         login_page.login_flow(self.config["email"], self.config["password"])
-        login_page.click_on_sign_in_button()
+        self.home_page.click_on_account_button()
 
         # Assert
-        self.assertEqual(self.driver.current_url, "https://assetstore.unity.com/3d")
+        self.assertTrue(self.home_page.is_logout_displayed())
 
     def test_login_unsuccessful(self):
         """
@@ -48,11 +48,10 @@ class TestLoginPage(unittest.TestCase):
         login_page = LoginPage(self.driver)
 
         # Act
-        login_page.login_flow(self.config["email"], self.config["incorrectpassword"])
-        login_page.click_on_sign_in_button()
+        login_page.login_flow(self.config["email"], self.config["incorrect_password"])
 
         # Assert
-        self.assertNotEqual(self.driver.current_url, "https://assetstore.unity.com/3d")
+        self.assertTrue(login_page.is_logout_displayed())
 
 
 if __name__ == "__main__":
