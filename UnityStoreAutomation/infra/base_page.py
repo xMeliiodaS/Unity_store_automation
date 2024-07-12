@@ -31,6 +31,3 @@ class BasePage:
                 behavior: 'smooth'
             });
         """, element)
-
-
-

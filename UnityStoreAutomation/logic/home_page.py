@@ -5,6 +5,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from logic.base_app_page import BaseAppPage
 from logic.utils import Utils
+from selenium.webdriver.support.ui import Select
 
 
 class HomePage(BaseAppPage):
@@ -18,9 +19,7 @@ class HomePage(BaseAppPage):
     MAX_PRICE_INPUT = '//input[@type="text" and @value="1500"]'
     SUBMIT_PRICE_BUTTON = '//button[@class="_2ZxFr"]'
 
-    ADD_TO_FAVORITE_ICON = '//button[@class="_2wt5x normal _29YX2"]'
-    FAVORITES_BUTTON = '//div[text() = "Favorites"]'
-    SAVE_TO_FAVORITE_BUTTON = '//div[text() = "Save"]'
+    VIEW_RESULT_BUTTON = '//div[@class="_1ofYm" and text() = "24"]'
 
     def __init__(self, driver):
         """
@@ -34,6 +33,9 @@ class HomePage(BaseAppPage):
                 EC.presence_of_element_located((By.XPATH, self.MIN_PRICE_INPUT)))
             self._max_price_input = WebDriverWait(self._driver, 10).until(
                 EC.presence_of_element_located((By.XPATH, self.MAX_PRICE_INPUT)))
+            self._view_result_button = WebDriverWait(self._driver, 10).until(
+                EC.presence_of_element_located((By.XPATH, self.VIEW_RESULT_BUTTON)))
+
         except NoSuchElementException as e:
             print("Element not found nigga", e)
 
@@ -111,33 +113,6 @@ class HomePage(BaseAppPage):
         element.click()
         time.sleep(4)
 
-    def click_on_add_to_favorites_icon(self):
-        """
-        Clicks on the second "Add to Favorites" icon.
-
-        This method waits for all "Add to Favorites" icons to be present and clicks on the second one.
-        """
-        WebDriverWait(self._driver, 10).until(
-            EC.presence_of_all_elements_located((By.XPATH, self.ADD_TO_FAVORITE_ICON)))[1].click()
-
-    def click_on_favorites_button(self):
-        """
-        Clicks on the favorites button.
-
-        This method waits for the favorites button to be present and clicks on it.
-        """
-        WebDriverWait(self._driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, self.FAVORITES_BUTTON))).click()
-
-    def click_on_save_to_favorites_button(self):
-        """
-        Clicks on the "Save to Favorites" button.
-
-        This method waits for the "Save to Favorites" button to be present and clicks on it.
-        """
-        WebDriverWait(self._driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, self.SAVE_TO_FAVORITE_BUTTON))).click()
-
     def free_asset_navigation_flow(self, asset_index):
         """
         Navigates through the pricing section, then the free assets section,
@@ -185,9 +160,16 @@ class HomePage(BaseAppPage):
         """
         assets_price_list = self.get_assets_price_list()
         return sorted(float(price.replace('$', '').replace(',', ''))
-               for price in assets_price_list)
+                      for price in assets_price_list)
 
     def fill_max_min_price_inputs_flow(self, max_price, min_price):
         self.fill_max_price_input(max_price)
         self.fill_min_price_input(min_price)
         self.click_on_submit_price_button()
+
+    def click_on_view_results_dropdown_button(self):
+        self._view_result_button.click()
+
+    def select_from_dropdown(self):
+        select = Select(self._view_result_button)
+        select.select_by_index(1)
