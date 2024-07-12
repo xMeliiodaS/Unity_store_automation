@@ -1,5 +1,4 @@
 import unittest
-
 from infra.browser_wrapper import BrowserWrapper
 from infra.config_provider import ConfigProvider
 from logic.cart_page import CartPage
