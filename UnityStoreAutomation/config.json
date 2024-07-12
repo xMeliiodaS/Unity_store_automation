@@ -4,5 +4,7 @@
   "email" : "zedanzedanzezob@gmail.com",
   "password" : "HeyGuys912",
   "incorrect_password" : "Kondara56",
-  "bio_text" : "Creating the game using Unity Engine was so much fun !"
+  "bio_text" : "Creating the game using Unity Engine was so much fun !",
+  "min_price" : 500,
+  "max_price" : 1000
 }

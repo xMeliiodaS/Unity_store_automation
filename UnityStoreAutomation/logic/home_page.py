@@ -1,5 +1,5 @@
 import time
-
+from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -11,8 +11,12 @@ class HomePage(BaseAppPage):
     ASSET_LINK = '//div[@data-test="package-title"]'
     SUB_CATEGORIES = '//a[@class="_1oxj5"]'
 
+    ASSETS_PRICE_TEXT = '//div[@class="mErEH _223RA"]'
     PRICING_BUTTON = '//strong[text() = "Pricing"]'
     FREE_ASSETS_BUTTON = '//span[text() = "Free Assets"]'
+    MIN_PRICE_INPUT = '//input[@type="text" and @value="0"]'
+    MAX_PRICE_INPUT = '//input[@type="text" and @value="1500"]'
+    SUBMIT_PRICE_BUTTON = '//button[@class="_2ZxFr"]'
 
     ADD_TO_FAVORITE_ICON = '//button[@class="_2wt5x normal _29YX2"]'
     FAVORITES_BUTTON = '//div[text() = "Favorites"]'
@@ -25,6 +29,13 @@ class HomePage(BaseAppPage):
         :param driver: The WebDriver instance to use for browser interactions.
         """
         super().__init__(driver)
+        try:
+            self._min_price_input = WebDriverWait(self._driver, 10).until(
+                EC.presence_of_element_located((By.XPATH, self.MIN_PRICE_INPUT)))
+            self._max_price_input = WebDriverWait(self._driver, 10).until(
+                EC.presence_of_element_located((By.XPATH, self.MAX_PRICE_INPUT)))
+        except NoSuchElementException as e:
+            print("Element not found nigga", e)
 
     def click_on_asset_link(self):
         """
@@ -140,3 +151,43 @@ class HomePage(BaseAppPage):
         self.click_on_pricing_button()
         self.click_on_free_assets_button()
         self.click_on_asset_link_by_index(asset_index)
+
+    def assets_price_list(self):
+        return WebDriverWait(self._driver, 10).until(
+            EC.presence_of_all_elements_located((By.XPATH, self.ASSETS_PRICE_TEXT)))
+
+    def click_on_submit_price_button(self):
+        element = WebDriverWait(self._driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, self.SUBMIT_PRICE_BUTTON)))
+        self.scroll_to_element(element)
+        element.click()
+
+    def fill_min_price_input(self, min_price):
+        self._min_price_input.clear()
+        self._min_price_input.send_keys(min_price)
+
+    def fill_max_price_input(self, max_price):
+        self._max_price_input.clear()
+        self._max_price_input.send_keys(max_price)
+
+    def get_assets_price_list(self):
+        """
+        Fetches the list of asset prices from the page.
+        """
+        time.sleep(1)
+        asset_elements = self.assets_price_list()
+        asset_prices = [element.text for element in asset_elements]
+        return asset_prices
+
+    def process_and_sort_asset_prices(self):
+        """
+        Processes and sorts the list of asset prices.
+        """
+        assets_price_list = self.get_assets_price_list()
+        return sorted(float(price.replace('$', '').replace(',', ''))
+               for price in assets_price_list)
+
+    def fill_max_min_price_inputs_flow(self, max_price, min_price):
+        self.fill_max_price_input(max_price)
+        self.fill_min_price_input(min_price)
+        self.click_on_submit_price_button()
