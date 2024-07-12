@@ -52,10 +52,13 @@ class LoginPage(BasePage):
 
     def login_flow(self, username, password):
         """
-        Perform the login flow using the provided configuration.
+        Perform the login flow using the provided username and password.
 
-        :param password:
-        :param username:
+        This method navigates to the login page, fills in the username and password fields,
+        and submits the login form.
+
+        :param username: The username to be used for login.
+        :param password: The password to be used for login.
         """
         home_page = HomePage(self._driver)
         home_page.click_on_account_button()
@@ -69,4 +72,3 @@ class LoginPage(BasePage):
         time.sleep(1)
         return WebDriverWait(self._driver, 5).until(
             EC.presence_of_element_located((By.XPATH, self.ERROR_MESSAGE))).is_displayed()
-
