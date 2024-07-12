@@ -22,7 +22,7 @@ class TestEditBio(unittest.TestCase):
         self.driver = self.browser.get_driver(self.config["url"])
 
         self.login_page = LoginPage(self.driver)
-        self.login_page.login_flow(self.config)
+        self.login_page.login_flow(self.config["email"], self.config["password"])
         self.home_page = HomePage(self.driver)
 
         self.home_page.click_on_account_button()

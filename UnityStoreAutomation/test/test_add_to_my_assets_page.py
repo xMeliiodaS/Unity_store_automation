@@ -22,10 +22,10 @@ class TestAddToMyAssetsPage(unittest.TestCase):
         self.driver = self.browser.get_driver(self.config["url"])
 
         self.login_page = LoginPage(self.driver)
-        self.login_page.login_flow(self.config)
+        self.login_page.login_flow(self.config["email"], self.config["password"])
 
         self.home_page = HomePage(self.driver)
-        self.home_page.free_asset_navigation_flow(1)
+        self.home_page.free_asset_navigation_flow(2)
 
         self.asset_page = AssetPage(self.driver)
         self.asset_name = self.asset_page.get_asset_title()
@@ -35,7 +35,7 @@ class TestAddToMyAssetsPage(unittest.TestCase):
         Test the login functionality with valid credentials.
         """
         # Arrange
-        self.asset_page.add_asset_to_cart_flow()
+        self.asset_page.add_and_view_my_assets_flow()
 
         # Act
         my_assets_page = MyAssetsPage(self.driver)

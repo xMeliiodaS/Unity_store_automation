@@ -21,8 +21,11 @@ class TestCategory(unittest.TestCase):
         self.driver = self.browser.get_driver(self.config["url"])
 
         self.login_page = LoginPage(self.driver)
-        self.login_page.login_flow(self.config)
+        self.login_page.login_flow(self.config["email"], self.config["password"])
         self.home_page = HomePage(self.driver)
+
+    def tearDown(self) -> None:
+        self.driver.quit()
 
     def test_category_name_exist(self):
         """
