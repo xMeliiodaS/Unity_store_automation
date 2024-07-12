@@ -19,7 +19,8 @@ class HomePage(BaseAppPage):
     MAX_PRICE_INPUT = '//input[@type="text" and @value="1500"]'
     SUBMIT_PRICE_BUTTON = '//button[@class="_2ZxFr"]'
 
-    VIEW_RESULT_BUTTON = '//div[@class="_1ofYm" and text() = "24"]'
+    VIEW_RESULT_DROPDOWN_BUTTON = '//div[@class="_1ofYm" and text() = "24"]'
+    DROPDOWN_OPTIONS = '//div[@class="_3BlIq" and (text() = "24" or text()="48" or text()="72" or text()="96")]'
 
     def __init__(self, driver):
         """
@@ -34,7 +35,7 @@ class HomePage(BaseAppPage):
             self._max_price_input = WebDriverWait(self._driver, 10).until(
                 EC.presence_of_element_located((By.XPATH, self.MAX_PRICE_INPUT)))
             self._view_result_button = WebDriverWait(self._driver, 10).until(
-                EC.presence_of_element_located((By.XPATH, self.VIEW_RESULT_BUTTON)))
+                EC.presence_of_element_located((By.XPATH, self.VIEW_RESULT_DROPDOWN_BUTTON)))
 
         except NoSuchElementException as e:
             print("Element not found nigga", e)
@@ -170,6 +171,29 @@ class HomePage(BaseAppPage):
     def click_on_view_results_dropdown_button(self):
         self._view_result_button.click()
 
-    def select_from_dropdown(self):
-        select = Select(self._view_result_button)
-        select.select_by_index(1)
+    def get_dropdown_options(self):
+        return WebDriverWait(self._driver, 10).until(
+            EC.presence_of_all_elements_located((By.XPATH, self.DROPDOWN_OPTIONS)))
+
+    def select_from_dropdown_by_value(self, value):
+        """
+        Selects an option from the dropdown menu by its value attribute.
+
+        :param value: The value attribute of the option to select.
+        """
+        # Get all dropdown options
+        options = self.get_dropdown_options()
+
+        # Iterate through options and click on the one with matching text
+        for option in options:
+            if int(option.text) == value:
+                self.scroll_to_element(option)
+                option.click()
+                return
+
+        # Handle case when option with specified value is not found
+        raise ValueError(f"Option with value '{value}' not found in dropdown.")
+
+    def get_current_assets_count_in_page(self):
+        return len(WebDriverWait(self._driver, 8).until(
+            EC.presence_of_all_elements_located((By.XPATH, self.ASSET_LINK))))
