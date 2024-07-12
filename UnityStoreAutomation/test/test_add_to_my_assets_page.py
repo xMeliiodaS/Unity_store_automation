@@ -25,7 +25,7 @@ class TestAddToMyAssetsPage(unittest.TestCase):
         self.login_page.login_flow(self.config["email"], self.config["password"])
 
         self.home_page = HomePage(self.driver)
-        self.home_page.free_asset_navigation_flow(22)
+        self.home_page.free_asset_navigation_flow(20)
 
         self.asset_page = AssetPage(self.driver)
         self.asset_name = self.asset_page.get_asset_title()

@@ -1,7 +1,6 @@
 import unittest
 from infra.browser_wrapper import BrowserWrapper
 from infra.config_provider import ConfigProvider
-from logic.cart_page import CartPage
 from logic.home_page import HomePage
 from logic.login_page import LoginPage
 from logic.personal_settings_page import PersonalSettingsPage

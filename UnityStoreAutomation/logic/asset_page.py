@@ -6,13 +6,14 @@ from logic.base_app_page import BaseAppPage
 
 
 class AssetPage(BaseAppPage):
+    # Locators related to the asset's buttons
     ADD_TO_CART_BUTTON = '//div[@id="product-detail-add-to-cart-button-v2"]'
     ASSET_TITLE = '//h1'
-    CATEGORIES_LIST = '//a[@class="zJTLn breadcrumb-nav-element"]'
+    CATEGORIES_PATH_LIST = '//a[@class="zJTLn breadcrumb-nav-element"]'
 
+    # Related to the process of purchasing the asset
     ADD_TO_MY_ASSETS_BUTTON = '//div[@id="product-detail-add-to-cart-button-v2"]'
     ACCEPT_BUTTON = '//button[@label="Accept"]'
-    GO_TO_MY_ASSETS = '//div[text() = "Go to My Assets"]'
 
     def __init__(self, driver):
         """
@@ -50,9 +51,12 @@ class AssetPage(BaseAppPage):
         Returns a list of names of the asset path categories.
         """
         elements = WebDriverWait(self._driver, 5).until(
-            EC.presence_of_all_elements_located((By.XPATH, self.CATEGORIES_LIST))
+            EC.presence_of_all_elements_located((By.XPATH, self.CATEGORIES_PATH_LIST))
         )
-        category_names = [element.text for element in elements]
+
+        # Get text from each element in the list
+        category_names = list(map(lambda element: element.text, elements))
+        #   category_names = [element.text for element in elements]
         return category_names
 
     def click_on_add_to_my_assets_button(self):
