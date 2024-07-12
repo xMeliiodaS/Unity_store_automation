@@ -7,6 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class BaseAppPage(BasePage):
+    CLOSE_COOKIES_TAB = '//div[@id="onetrust-close-btn-container"]//button[@aria-label="Close"]'
     ACCOUNT_BUTTON = '//button[@class="button right-nav-element"]'
     SIGN_IN_BUTTON = '//div[@class="_2zqSQ"]'
     MY_ASSETS_BUTTON = '//button[@class="_3-jib assets right-nav-element"]'
@@ -24,6 +25,13 @@ class BaseAppPage(BasePage):
         :param driver: The WebDriver instance to use for browser interactions.
         """
         super().__init__(driver)
+
+    def click_on_close_cookies_button(self):
+        """
+        This method waits for the cookies close button to be present and then clicks on it.
+        """
+        WebDriverWait(self._driver, 8).until(
+            EC.element_to_be_clickable((By.XPATH, self.CLOSE_COOKIES_TAB))).click()
 
     def click_on_account_button(self):
         """
@@ -92,9 +100,8 @@ class BaseAppPage(BasePage):
 
         This method waits for the remove asset button to be clickable and then clicks on it.
         """
-        element = WebDriverWait(self._driver, 5).until(
-            EC.element_to_be_clickable((By.XPATH, self.REMOVE_ASSET_FROM_CART_BUTTON)))
-        element.click()
+        WebDriverWait(self._driver, 5).until(
+            EC.element_to_be_clickable((By.XPATH, self.REMOVE_ASSET_FROM_CART_BUTTON))).click()
         time.sleep(3)
 
     def click_on_personal_settings_button(self):
@@ -104,9 +111,8 @@ class BaseAppPage(BasePage):
         This method waits for the personal settings button to be present and
          then clicks on it.
         """
-        element = WebDriverWait(self._driver, 5).until(
-            EC.presence_of_element_located((By.XPATH, self.PERSONAL_SETTINGS)))
-        element.click()
+        WebDriverWait(self._driver, 5).until(
+            EC.element_to_be_clickable((By.XPATH, self.PERSONAL_SETTINGS))).click()
 
     def is_logout_displayed(self):
         """

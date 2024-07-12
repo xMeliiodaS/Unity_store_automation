@@ -9,6 +9,7 @@ from selenium.webdriver.support.ui import Select
 
 
 class HomePage(BaseAppPage):
+
     ASSET_LINK = '//div[@data-test="package-title"]'
     SUB_CATEGORIES = '//a[@class="_1oxj5"]'
 

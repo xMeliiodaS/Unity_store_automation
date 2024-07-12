@@ -63,5 +63,6 @@ class PersonalSettingsPage(BaseAppPage):
 
         :return: The current bio text as a string.
         """
+        self.refresh_page()
         return WebDriverWait(self._driver, 5).until(
             EC.presence_of_element_located((By.XPATH, self.CURRENT_BIO_TEXT))).text

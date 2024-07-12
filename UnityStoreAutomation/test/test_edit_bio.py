@@ -28,11 +28,6 @@ class TestEditBio(unittest.TestCase):
         self.home_page.click_on_account_button()
         self.home_page.click_on_personal_settings_button()
 
-    def tearDown(self) -> None:
-        self.cart_page = CartPage(self.driver)
-        self.cart_page.click_remove_asset_from_cart_button()
-        self.driver.quit()
-
     def test_edit_bio_successful(self):
         """
         Test the login functionality with valid credentials.
@@ -46,7 +41,7 @@ class TestEditBio(unittest.TestCase):
         personal_settings_page.fill_bio_input(text_to_insert)
         personal_settings_page.click_on_save_bio_button()
         current_text_in_bio = personal_settings_page.get_current_bio_text()
-
+        print(current_text_in_bio)
         # Assert
         self.assertEqual(text_to_insert, current_text_in_bio)
 

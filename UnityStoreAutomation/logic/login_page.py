@@ -61,6 +61,7 @@ class LoginPage(BasePage):
         :param password: The password to be used for login.
         """
         home_page = HomePage(self._driver)
+        home_page.click_on_close_cookies_button()
         home_page.click_on_account_button()
         home_page.click_on_sign_in_button()
 
