@@ -27,9 +27,8 @@ class LoginPage(BasePage):
 
         :param username: The username to enter into the email input field.
         """
-        element = WebDriverWait(self._driver, 5).until(
-            EC.presence_of_element_located((By.XPATH, self.EMAIL_INPUT)))
-        element.send_keys(username)
+        WebDriverWait(self._driver, 5).until(
+            EC.presence_of_element_located((By.XPATH, self.EMAIL_INPUT))).send_keys(username)
 
     def fill_password_input(self, password):
         """
