@@ -69,7 +69,7 @@ class LoginPage(BasePage):
         self.fill_password_input(password)
         self.click_on_sign_in_button()
 
-    def is_logout_displayed(self):
+    def is_login_error_message_displayed(self):
         time.sleep(1)
         return WebDriverWait(self._driver, 5).until(
             EC.presence_of_element_located((By.XPATH, self.ERROR_MESSAGE))).is_displayed()

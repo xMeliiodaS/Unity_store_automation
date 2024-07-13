@@ -49,7 +49,7 @@ class TestLoginPage(unittest.TestCase):
         login_page.login_flow(self.config["email"], self.config["incorrect_password"])
 
         # Assert
-        self.assertTrue(login_page.is_logout_displayed())
+        self.assertTrue(login_page.is_login_error_message_displayed())
 
 
 if __name__ == "__main__":

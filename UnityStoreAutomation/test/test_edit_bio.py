@@ -44,6 +44,22 @@ class TestEditBio(unittest.TestCase):
         # Assert
         self.assertEqual(text_to_insert, current_text_in_bio)
 
+    def test_edit_bio_with_invalid_data(self):
+        """
+        Test editing the bio with invalid data (e.g., exceeding character limit).
+        """
+        # Arrange
+        personal_settings_page = PersonalSettingsPage(self.driver)
+        personal_settings_page.click_on_edit_bio_button()
+
+        # Act
+        personal_settings_page.fill_bio_input("a" * 201)
+        personal_settings_page.click_on_save_bio_button()
+
+        # Assert
+        current_text_in_bio = personal_settings_page.get_current_bio_text()
+        self.assertLessEqual(len(current_text_in_bio), 200)
+
 
 if __name__ == "__main__":
     unittest.main()
