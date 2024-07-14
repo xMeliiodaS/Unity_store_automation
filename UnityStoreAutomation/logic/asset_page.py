@@ -34,7 +34,7 @@ class AssetPage(BaseAppPage):
             EC.element_to_be_clickable((By.XPATH, self.ADD_TO_CART_BUTTON)))
         self.scroll_to_element(element)
         element.click()
-        logging.info("Asset got added to the cart")
+        logging.info("Asset added to cart")
 
     def get_asset_title(self):
         """
@@ -70,6 +70,7 @@ class AssetPage(BaseAppPage):
             EC.element_to_be_clickable((By.XPATH, self.ADD_TO_MY_ASSETS_BUTTON)))
         time.sleep(2)
         element.click()
+        logging.info("Clicked on the 'Add to My Assets' button")
 
     def click_on_accept_to_my_assets_button(self):
         """
@@ -79,6 +80,7 @@ class AssetPage(BaseAppPage):
             EC.element_to_be_clickable((By.XPATH, self.ACCEPT_BUTTON)))
         time.sleep(2)
         element.click()
+        logging.info("Asset added to the 'My Assets")
 
     def add_and_view_my_assets_flow(self):
         """
@@ -86,6 +88,5 @@ class AssetPage(BaseAppPage):
         """
         self.click_on_add_to_my_assets_button()
         self.click_on_accept_to_my_assets_button()
-        logging.info("Asset added to the 'my Assets'")
         self.click_on_my_assets_button()
 

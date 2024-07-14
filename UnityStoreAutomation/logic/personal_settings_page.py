@@ -1,9 +1,10 @@
 import time
-
+import logging
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from logic.base_app_page import BaseAppPage
+from infra.logging_setup import logger_setup
 
 
 class PersonalSettingsPage(BaseAppPage):
@@ -53,6 +54,7 @@ class PersonalSettingsPage(BaseAppPage):
         """
         WebDriverWait(self._driver, 10).until(
             EC.presence_of_element_located((By.XPATH, self.SAVE_BIO_BUTTON))).click()
+        logging.info("Clicked on the 'Save Bio' button after changing the bio text")
 
     def get_current_bio_text(self):
         """

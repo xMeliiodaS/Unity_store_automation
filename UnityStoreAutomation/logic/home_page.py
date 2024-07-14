@@ -1,3 +1,4 @@
+import logging
 import time
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
@@ -5,6 +6,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from logic.base_app_page import BaseAppPage
 from infra.utils import Utils
+from infra.logging_setup import logger_setup
 
 
 class HomePage(BaseAppPage):
@@ -55,6 +57,7 @@ class HomePage(BaseAppPage):
             EC.presence_of_all_elements_located((By.XPATH, self.ASSETS_LINK_BUTTON)))[index]
         self.scroll_to_element(elements)
         elements.click()
+        logging.info(f"Clicked on asset at index {index}")
 
     def click_on_category_by_name(self, name):
         """
@@ -64,6 +67,7 @@ class HomePage(BaseAppPage):
         """
         WebDriverWait(self._driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, f'//a[text()="{name}"]'))).click()
+        logging.info(f"Clicked on '{name}' category")
 
     def get_random_category_text(self):
         """
@@ -94,6 +98,7 @@ class HomePage(BaseAppPage):
         """
         WebDriverWait(self._driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, self.FREE_ASSETS_BUTTON))).click()
+        logging.info("Clicked on the 'Free Assets' button")
         time.sleep(4)
 
     def free_asset_navigation_flow(self, asset_index):
@@ -155,7 +160,6 @@ class HomePage(BaseAppPage):
         """
         time.sleep(1)
         asset_elements = self.assets_price_list()
-        # asset_prices = [element.text for element in asset_elements]
         asset_prices = list(map(lambda element: element.text, asset_elements))
 
         return asset_prices
@@ -210,6 +214,7 @@ class HomePage(BaseAppPage):
             if int(option.text) == value:
                 self.scroll_to_element(option)
                 option.click()
+                logging.info(f"Selected option from dropdown with value '{value}'")
                 return
 
         # Handle case when option with specified value is not found

@@ -8,5 +8,5 @@
   "bio_text_exceeding_limit" : "a",
   "Exceeding_char_limit" : 200,
   "min_price" : 500,
-  "max_price" : 1000,
+  "max_price" : 1000
 }
