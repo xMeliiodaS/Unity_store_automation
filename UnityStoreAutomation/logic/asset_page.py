@@ -34,7 +34,7 @@ class AssetPage(BaseAppPage):
             EC.element_to_be_clickable((By.XPATH, self.ADD_TO_CART_BUTTON)))
         self.scroll_to_element(element)
         element.click()
-        logging.info("Asset added to cart")
+        logging.info("Click on Add to cart icon")
 
     def get_asset_title(self):
         """
@@ -80,7 +80,7 @@ class AssetPage(BaseAppPage):
             EC.element_to_be_clickable((By.XPATH, self.ACCEPT_BUTTON)))
         time.sleep(2)
         element.click()
-        logging.info("Asset added to the 'My Assets")
+        logging.info("Clicked on accept terms")
 
     def add_and_view_my_assets_flow(self):
         """

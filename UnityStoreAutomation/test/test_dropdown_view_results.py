@@ -18,21 +18,21 @@ class TestDropdownViewResults(unittest.TestCase):
         This method initializes the browser, loads the configuration,
         and navigates to the specified URL.
         """
-        logging.info("----------STARTING TESTING assets count after changing dropdown option----------")
-
         self.browser = BrowserWrapper()
         self.config = ConfigProvider.load_config_json()
         self.driver = self.browser.get_driver(self.config["url"])
 
         self.login_page = LoginPage(self.driver)
         self.login_page.login_flow(self.config["email"], self.config["password"])
-        logging.info(f"Logging in with email: {self.config['email']}")
         self.home_page = HomePage(self.driver)
 
     def test_assets_count_changed_after_dropdown(self):
         """
         Test if the assets count changes after selecting a different option from the dropdown.
         """
+        logging.info("----------TESTING assets count change after dropdown selection STARTED----------")
+        logging.info(f"Logged in with email: {self.config['email']}")
+
         # Arrange
         assets_count_before = self.home_page.get_current_assets_count_in_page()
         self.home_page.click_on_view_results_dropdown_button()
@@ -48,6 +48,9 @@ class TestDropdownViewResults(unittest.TestCase):
         """
         Test if the assets count matches the chosen option from the dropdown.
         """
+        logging.info("----------TESTING assets count match chosen option from dropdown STARTED----------")
+        logging.info(f"Logged in with email: {self.config['email']}")
+
         # Arrange
         self.home_page.click_on_view_results_dropdown_button()
 

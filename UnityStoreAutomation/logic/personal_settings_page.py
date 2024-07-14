@@ -29,6 +29,7 @@ class PersonalSettingsPage(BaseAppPage):
         """
         WebDriverWait(self._driver, 10).until(
             EC.presence_of_element_located((By.XPATH, self.EDIT_BIO))).click()
+        logging.info("Clicked on the Edit Bio button")
 
     def fill_bio_input(self, bio_text):
         """
@@ -45,6 +46,7 @@ class PersonalSettingsPage(BaseAppPage):
         time.sleep(1)
         element.clear()
         element.send_keys(bio_text)
+        logging.info("Filled the bio input")
 
     def click_on_save_bio_button(self):
         """
@@ -55,6 +57,18 @@ class PersonalSettingsPage(BaseAppPage):
         WebDriverWait(self._driver, 10).until(
             EC.presence_of_element_located((By.XPATH, self.SAVE_BIO_BUTTON))).click()
         logging.info("Clicked on the 'Save Bio' button after changing the bio text")
+
+    def edit_bio_flow(self, bio_text):
+        """
+        Performs the flow to edit the bio:
+        1. Clicks on the 'Edit Bio' button.
+        2. Fills in the bio input field with the provided text.
+        3. Clicks on the 'Save Bio' button.
+
+        :param bio_text: The text to be entered into the bio input field.
+        """
+        self.fill_bio_input(bio_text)
+        self.click_on_save_bio_button()
 
     def get_current_bio_text(self):
         """

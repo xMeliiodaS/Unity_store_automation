@@ -19,15 +19,12 @@ class TestCartPage(unittest.TestCase):
         This method initializes the browser, loads the configuration,
         and navigates to the specified URL.
         """
-        logging.info("----------STARTING TESTING add asset to cart----------")
-
         self.browser = BrowserWrapper()
         self.config = ConfigProvider.load_config_json()
         self.driver = self.browser.get_driver(self.config["url"])
 
         self.login_page = LoginPage(self.driver)
         self.login_page.login_flow(self.config["email"], self.config["password"])
-        logging.info(f"Logging in with email: {self.config['email']}")
 
         self.home_page = HomePage(self.driver)
 
@@ -44,6 +41,9 @@ class TestCartPage(unittest.TestCase):
         """
         Test adding an asset to the cart and verifying its presence.
         """
+        logging.info("----------TESTING add asset to cart and verify presence STARTED----------")
+        logging.info(f"Logged in with email: {self.config['email']}")
+
         # Arrange
         self.home_page.click_on_asset_link_by_index(2)
         asset_page = AssetPage(self.driver)
@@ -52,11 +52,10 @@ class TestCartPage(unittest.TestCase):
         # Act
         asset_page.add_asset_to_cart_flow()
         cart_page = CartPage(self.driver)
-        asset_in_cart_title = cart_page.get_asset_in_cart_title()
 
         # Assert
-        self.assertEqual(asset_title, asset_in_cart_title)
-        logging.info("---------------TEST COMPLETED---------------")
+        self.assertEqual(asset_title, cart_page.get_asset_in_cart_title())
+        logging.info("---------------TEST COMPLETED---------------\n")
 
 
 if __name__ == "__main__":

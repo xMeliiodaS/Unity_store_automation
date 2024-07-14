@@ -133,6 +133,7 @@ class HomePage(BaseAppPage):
             EC.element_to_be_clickable((By.XPATH, self.SUBMIT_PRICE_BUTTON)))
         self.scroll_to_element(element)
         element.click()
+        logging.info("Clicked on the Submit Price button")
 
     def fill_min_price_input(self, min_price):
         """
@@ -143,6 +144,7 @@ class HomePage(BaseAppPage):
         """
         self._min_price_input.clear()
         self._min_price_input.send_keys(min_price)
+        logging.info(f"Setting minimum price input to: {min_price}")
 
     def fill_max_price_input(self, max_price):
         """
@@ -153,6 +155,7 @@ class HomePage(BaseAppPage):
         """
         self._max_price_input.clear()
         self._max_price_input.send_keys(max_price)
+        logging.info(f"Setting maximum price input to: {max_price}")
 
     def get_assets_price_list(self):
         """
@@ -189,6 +192,7 @@ class HomePage(BaseAppPage):
         Click the view results dropdown button to display the dropdown menu.
         """
         self._view_result_button.click()
+        logging.info("Clicked on the 'View Results' dropdown button")
 
     def get_dropdown_options(self):
         """

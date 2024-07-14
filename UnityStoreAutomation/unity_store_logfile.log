@@ -1,5 +1,48 @@
-14-07-2024 - 17:13:19: INFO: ----------STARTING TESTING add asset to cart----------
-14-07-2024 - 17:13:42: INFO: Logging in with email: zedanzedanzezob@gmail.com
-14-07-2024 - 17:13:45: INFO: Clicked on asset at index 2
-14-07-2024 - 17:13:47: INFO: Asset added to cart
-14-07-2024 - 17:13:50: INFO: ---------------TEST COMPLETED---------------
+14-07-2024 - 19:15:49: INFO: ----------TESTING add asset to cart and verify presence STARTED----------
+14-07-2024 - 19:15:49: INFO: Logged in with email: zedanzedanzezob@gmail.com
+14-07-2024 - 19:15:52: INFO: Clicked on asset at index 2
+14-07-2024 - 19:15:54: INFO: Click on Add to cart icon
+14-07-2024 - 19:15:56: INFO: View cart
+14-07-2024 - 19:15:57: INFO: ---------------TEST COMPLETED---------------
+
+14-07-2024 - 19:17:37: INFO: ----------TESTING if a category name exists in the asset's path STARTED----------
+14-07-2024 - 19:17:37: INFO: Logged in with email: zedanzedanzezob@gmail.com
+14-07-2024 - 19:17:41: INFO: Clicked on 'Vegetation' category
+14-07-2024 - 19:17:47: INFO: Clicked on asset at index 2
+14-07-2024 - 19:17:47: INFO: ---------------TEST COMPLETED---------------
+
+14-07-2024 - 19:20:44: INFO: ----------TESTING assets count match chosen option from dropdown STARTED----------
+14-07-2024 - 19:20:44: INFO: Logged in with email: zedanzedanzezob@gmail.com
+14-07-2024 - 19:20:45: INFO: Clicked on the 'View Results' dropdown button
+14-07-2024 - 19:20:45: INFO: Selected option from dropdown with value '72'
+14-07-2024 - 19:20:47: INFO: ---------------TEST COMPLETED---------------
+
+14-07-2024 - 19:28:18: INFO: Clicked on the personal settings button
+14-07-2024 - 19:28:19: INFO: Clicked on the Edit Bio button
+14-07-2024 - 19:28:19: INFO: ----------TESTING edit bio functionality STARTED----------
+14-07-2024 - 19:28:19: INFO: Logged in with email: zedanzedanzezob@gmail.com
+14-07-2024 - 19:28:20: INFO: Filled the bio input
+14-07-2024 - 19:28:20: INFO: Clicked on the 'Save Bio' button after changing the bio text
+14-07-2024 - 19:28:24: INFO: ---------------TEST COMPLETED---------------
+
+14-07-2024 - 19:29:31: INFO: Clicked on the personal settings button
+14-07-2024 - 19:29:32: INFO: Clicked on the Edit Bio button
+14-07-2024 - 19:29:32: INFO: ----------TESTING edit bio with exceeding character limit STARTED----------
+14-07-2024 - 19:29:32: INFO: Logged in with email: zedanzedanzezob@gmail.com
+14-07-2024 - 19:29:35: INFO: Filled the bio input
+14-07-2024 - 19:29:35: INFO: Clicked on the 'Save Bio' button after changing the bio text
+14-07-2024 - 19:29:39: INFO: ---------------TEST COMPLETED---------------
+
+14-07-2024 - 19:39:05: INFO: ----------TESTING filter assets by minimum and maximum prices STARTED----------
+14-07-2024 - 19:39:05: INFO: Logged in with email: zedanzedanzezob@gmail.com
+14-07-2024 - 19:39:05: INFO: Setting maximum price input to: 1000
+14-07-2024 - 19:39:06: INFO: Setting minimum price input to: 500
+14-07-2024 - 19:39:06: INFO: Clicked on the Submit Price button
+14-07-2024 - 19:39:07: INFO: ---------------TEST COMPLETED---------------
+
+14-07-2024 - 19:40:08: INFO: ----------TESTING login with valid credentials STARTED----------
+14-07-2024 - 19:40:26: INFO: ---------------TEST COMPLETED---------------
+
+14-07-2024 - 19:40:34: INFO: ----------TESTING login with invalid credentials STARTED----------
+14-07-2024 - 19:40:42: INFO: ---------------TEST COMPLETED---------------
+

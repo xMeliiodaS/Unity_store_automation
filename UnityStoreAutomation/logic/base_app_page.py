@@ -1,3 +1,4 @@
+import logging
 import time
 from selenium.webdriver.common.by import By
 from infra.base_page import BasePage
@@ -63,6 +64,7 @@ class BaseAppPage(BasePage):
         """
         WebDriverWait(self._driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, self.MY_ASSETS_BUTTON))).click()
+        logging.info("Clicked on 'My Asset' tab")
 
     def click_on_saved_assets_button(self):
         """
@@ -88,6 +90,7 @@ class BaseAppPage(BasePage):
         """
         WebDriverWait(self._driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, self.VIEW_CART_BUTTON))).click()
+        logging.info("View cart")
 
     def click_remove_asset_from_cart_button(self):
         """
@@ -104,6 +107,7 @@ class BaseAppPage(BasePage):
         """
         WebDriverWait(self._driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, self.PERSONAL_SETTINGS))).click()
+        logging.info("Clicked on the personal settings button")
 
     def is_logout_displayed(self):
         """

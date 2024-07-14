@@ -18,15 +18,12 @@ class TestEditBio(unittest.TestCase):
         This method initializes the browser, loads the configuration,
         and navigates to the specified URL.
         """
-        logging.info("----------STARTING TESTING the editing BIO----------")
-
         self.browser = BrowserWrapper()
         self.config = ConfigProvider.load_config_json()
         self.driver = self.browser.get_driver(self.config["url"])
 
         self.login_page = LoginPage(self.driver)
         self.login_page.login_flow(self.config["email"], self.config["password"])
-        logging.info(f"Logging in with email: {self.config['email']}")
 
         self.home_page = HomePage(self.driver)
         self.home_page.click_on_account_button()
@@ -39,28 +36,33 @@ class TestEditBio(unittest.TestCase):
         """
         Test the login functionality with valid credentials.
         """
+        logging.info("----------TESTING edit bio functionality STARTED----------")
+        logging.info(f"Logged in with email: {self.config['email']}")
+
         # Act
         text_to_insert = self.config["bio_text"]
-        self.personal_settings_page.fill_bio_input(text_to_insert)
-        self.personal_settings_page.click_on_save_bio_button()
-        current_text_in_bio = self.personal_settings_page.get_current_bio_text()
+        self.personal_settings_page.edit_bio_flow(text_to_insert)
 
         # Assert
-        self.assertEqual(text_to_insert, current_text_in_bio)
-        logging.info("---------------TEST COMPLETED---------------")
+        self.assertEqual(text_to_insert, self.personal_settings_page.get_current_bio_text())
 
-    def test_edit_bio_with_invalid_data(self):
+        logging.info("---------------TEST COMPLETED---------------\n")
+
+    def test_edit_bio_with_exceeding_char_limit(self):
         """
         Test editing the bio with invalid data (e.g., exceeding character limit).
         """
+        logging.info("----------TESTING edit bio with exceeding character limit STARTED----------")
+        logging.info(f"Logged in with email: {self.config['email']}")
+
         # Act
-        self.personal_settings_page.fill_bio_input(self.config["bio_text_exceeding_limit"] * 201)
-        self.personal_settings_page.click_on_save_bio_button()
+        self.personal_settings_page.edit_bio_flow(self.config["bio_text_exceeding_limit"] * 201)
 
         # Assert
-        current_text_in_bio = self.personal_settings_page.get_current_bio_text()
-        self.assertLessEqual(len(current_text_in_bio), self.config["Exceeding_char_limit"])
-        logging.info("---------------TEST COMPLETED---------------")
+        self.assertLessEqual(len(self.personal_settings_page.get_current_bio_text()),
+                             self.config["Exceeding_char_limit"])
+
+        logging.info("---------------TEST COMPLETED---------------\n")
 
     def tearDown(self):
         """
