@@ -25,7 +25,7 @@ class TestMinMaxPrice(unittest.TestCase):
 
     def test_min_max_price_valid(self):
         """
-        Test the login functionality with valid credentials.
+        Test filtering assets by valid minimum and maximum prices.
         """
         # Arrange
         self.home_page.click_on_pricing_button()
@@ -40,6 +40,12 @@ class TestMinMaxPrice(unittest.TestCase):
                                                        " than or equal to $500")
         self.assertLessEqual(sorted_prices[-1], 1000, "Maximum price is not less"
                                                       " than or equal to $1000")
+
+    def tearDown(self):
+        """
+        Clean up after each test case by quitting the WebDriver instance.
+        """
+        self.driver.quit()
 
 
 if __name__ == "__main__":

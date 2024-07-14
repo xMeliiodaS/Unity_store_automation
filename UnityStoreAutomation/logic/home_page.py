@@ -8,8 +8,12 @@ from infra.utils import Utils
 
 
 class HomePage(BaseAppPage):
-    
+    # ------------------Locators related to the assets and asset's view------------------
     ASSETS_LINK_BUTTON = '//div[@data-test="package-title"]'
+    VIEW_RESULT_DROPDOWN_BUTTON = '//div[@class="_1ofYm" and text() = "24"]'
+    DROPDOWN_OPTIONS = '//div[@class="_3BlIq" and (text() = "24" or text()="48" or text()="72" or text()="96")]'
+
+    # ------------------Locator related to the asset's categories------------------
     SUB_CATEGORIES = '//a[@class="_1oxj5"]'
 
     # ------------------Locators related to the pricing------------------
@@ -19,9 +23,6 @@ class HomePage(BaseAppPage):
     MIN_PRICE_INPUT = '//input[@type="text" and @value="0"]'
     MAX_PRICE_INPUT = '//input[@type="text" and @value="1500"]'
     SUBMIT_PRICE_BUTTON = '//button[@class="_2ZxFr"]'
-
-    VIEW_RESULT_DROPDOWN_BUTTON = '//div[@class="_1ofYm" and text() = "24"]'
-    DROPDOWN_OPTIONS = '//div[@class="_3BlIq" and (text() = "24" or text()="48" or text()="72" or text()="96")]'
 
     def __init__(self, driver):
         """
@@ -43,8 +44,6 @@ class HomePage(BaseAppPage):
 
     def click_on_asset_link(self):
         """
-        Clicks on the third asset link.
-
         This method waits for all asset link elements to be present, scrolls to the third one,
         and clicks on it.
         """
@@ -69,15 +68,12 @@ class HomePage(BaseAppPage):
 
     def click_on_category_by_name(self, name):
         """
-        Clicks on a category by its name.
-
-        This method waits for the category element to be present and clicks on it.
+        This method waits for the category element to be clickable and clicks on it.
 
         :param name: The name of the category to click.
         """
-        element = WebDriverWait(self._driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, f'//a[text()="{name}"]')))
-        element.click()
+        WebDriverWait(self._driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, f'//a[text()="{name}"]'))).click()
 
     def get_random_category_text(self):
         """
@@ -93,8 +89,6 @@ class HomePage(BaseAppPage):
 
     def click_on_pricing_button(self):
         """
-        Clicks on the pricing button.
-
         This method waits for the pricing button to be clickable, scrolls to it,
         and clicks on it.
         """
@@ -105,14 +99,11 @@ class HomePage(BaseAppPage):
 
     def click_on_free_assets_button(self):
         """
-        Clicks on the free assets button.
-
         This method waits for the free assets button to be clickable, clicks on it,
         and waits for the page to load.
         """
-        element = WebDriverWait(self._driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, self.FREE_ASSETS_BUTTON)))
-        element.click()
+        WebDriverWait(self._driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, self.FREE_ASSETS_BUTTON))).click()
         time.sleep(4)
 
     def free_asset_navigation_flow(self, asset_index):
@@ -130,20 +121,41 @@ class HomePage(BaseAppPage):
         self.click_on_asset_link_by_index(asset_index)
 
     def assets_price_list(self):
+        """
+        Wait for and return a list of elements representing the prices of assets.
+
+        Returns:
+            list: List of web elements that contain the price information of the assets.
+        """
         return WebDriverWait(self._driver, 10).until(
             EC.presence_of_all_elements_located((By.XPATH, self.ASSETS_PRICE_TEXT)))
 
     def click_on_submit_price_button(self):
+        """
+        Wait for the submit price button to be clickable, scroll to it, and click it.
+        """
         element = WebDriverWait(self._driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, self.SUBMIT_PRICE_BUTTON)))
         self.scroll_to_element(element)
         element.click()
 
     def fill_min_price_input(self, min_price):
+        """
+        Clear the minimum price input field and fill it with the specified minimum price.
+
+        Args:
+            min_price: The minimum price to set in the input field.
+        """
         self._min_price_input.clear()
         self._min_price_input.send_keys(min_price)
 
     def fill_max_price_input(self, max_price):
+        """
+        Clear the maximum price input field and fill it with the specified maximum price.
+
+        Args:
+            max_price: The maximum price to set in the input field.
+        """
         self._max_price_input.clear()
         self._max_price_input.send_keys(max_price)
 
@@ -153,7 +165,9 @@ class HomePage(BaseAppPage):
         """
         time.sleep(1)
         asset_elements = self.assets_price_list()
-        asset_prices = [element.text for element in asset_elements]
+        # asset_prices = [element.text for element in asset_elements]
+        asset_prices = list(map(lambda element: element.text, asset_elements))
+
         return asset_prices
 
     def process_and_sort_asset_prices(self):
@@ -165,14 +179,30 @@ class HomePage(BaseAppPage):
                       for price in assets_price_list)
 
     def fill_max_min_price_inputs_flow(self, max_price, min_price):
+        """
+        Fill the maximum and minimum price input fields and submit the price filter form.
+
+        Args:
+            max_price: The maximum price to set in the input field.
+            min_price: The minimum price to set in the input field.
+        """
         self.fill_max_price_input(max_price)
         self.fill_min_price_input(min_price)
         self.click_on_submit_price_button()
 
     def click_on_view_results_dropdown_button(self):
+        """
+        Click the view results dropdown button to display the dropdown menu.
+        """
         self._view_result_button.click()
 
     def get_dropdown_options(self):
+        """
+        Wait for and return a list of elements representing the options in a dropdown menu.
+
+        Returns:
+            list: List of web elements that represent the dropdown options.
+        """
         return WebDriverWait(self._driver, 10).until(
             EC.presence_of_all_elements_located((By.XPATH, self.DROPDOWN_OPTIONS)))
 
@@ -196,5 +226,14 @@ class HomePage(BaseAppPage):
         raise ValueError(f"Option with value '{value}' not found in dropdown.")
 
     def get_current_assets_count_in_page(self):
+        """
+        Get the current number of asset elements displayed on the page.
+
+        This method waits for the assets to be present on the page,
+         then returns the count of those elements.
+
+        Returns:
+            int: The number of asset elements currently displayed on the page.
+        """
         return len(WebDriverWait(self._driver, 10).until(
             EC.presence_of_all_elements_located((By.XPATH, self.ASSETS_LINK_BUTTON))))

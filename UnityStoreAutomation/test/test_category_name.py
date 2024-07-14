@@ -25,14 +25,16 @@ class TestCategory(unittest.TestCase):
         self.home_page = HomePage(self.driver)
 
     def tearDown(self) -> None:
+        """
+        Clean up after each test case by quitting the WebDriver instance.
+        """
         self.driver.quit()
 
     def test_category_name_exist(self):
         """
-        Test the login functionality with valid credentials.
+        Test if a category name exists in the asset's path categories list.
         """
         # Arrange
-
         category_name = self.home_page.get_random_category_text()
         self.home_page.click_on_category_by_name(category_name)
 

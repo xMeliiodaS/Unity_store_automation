@@ -61,6 +61,12 @@ class TestEditBio(unittest.TestCase):
         current_text_in_bio = personal_settings_page.get_current_bio_text()
         self.assertLessEqual(len(current_text_in_bio), 200)
 
+    def tearDown(self):
+        """
+        Clean up after each test case by quitting the WebDriver instance.
+        """
+        self.driver.quit()
+
 
 if __name__ == "__main__":
     unittest.main()

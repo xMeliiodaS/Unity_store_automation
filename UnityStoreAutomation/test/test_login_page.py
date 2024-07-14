@@ -22,6 +22,9 @@ class TestLoginPage(unittest.TestCase):
         self.home_page = HomePage(self.driver)
 
     def tearDown(self) -> None:
+        """
+        Clean up after each test case by quitting the WebDriver instance.
+        """
         self.driver.quit()
 
     def test_login_successful(self):
@@ -40,7 +43,7 @@ class TestLoginPage(unittest.TestCase):
 
     def test_login_unsuccessful(self):
         """
-        Test the login functionality with valid credentials.
+        Test the login functionality with invalid credentials.
         """
         # Arrange
         login_page = LoginPage(self.driver)

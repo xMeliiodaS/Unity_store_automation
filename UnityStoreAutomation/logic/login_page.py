@@ -68,8 +68,13 @@ class LoginPage(BasePage):
         self.fill_password_input(password)
         self.click_on_sign_in_button()
 
-
     def is_login_error_message_displayed(self):
+        """
+        This method waits for the error message element to be present and visible on the page.
+
+        Returns:
+            bool: True if the error message is displayed, False otherwise.
+        """
         time.sleep(1)
         return WebDriverWait(self._driver, 5).until(
             EC.presence_of_element_located((By.XPATH, self.ERROR_MESSAGE))).is_displayed()

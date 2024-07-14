@@ -32,7 +32,7 @@ class TestAddToMyAssetsPage(unittest.TestCase):
 
     def test_add_asset_to_my_assets_successful(self):
         """
-        Test the login functionality with valid credentials.
+        Test adding an asset to 'My Assets' successfully.
         """
         # Arrange
         self.asset_page.add_and_view_my_assets_flow()
@@ -44,6 +44,11 @@ class TestAddToMyAssetsPage(unittest.TestCase):
         # Assert
         self.assertIn(self.asset_name, assets_name_list)
 
+    def tearDown(self):
+        """
+        Clean up after each test case by quitting the WebDriver instance.
+        """
+        self.driver.quit()
 
 if __name__ == "__main__":
     unittest.main()

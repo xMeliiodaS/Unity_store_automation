@@ -26,7 +26,7 @@ class TestDropdownViewResults(unittest.TestCase):
 
     def test_assets_count_changed_after_dropdown(self):
         """
-        Test the login functionality with valid credentials.
+        Test if the assets count changes after selecting a different option from the dropdown.
         """
         # Arrange
         assets_count_before = self.home_page.get_current_assets_count_in_page()
@@ -40,7 +40,7 @@ class TestDropdownViewResults(unittest.TestCase):
 
     def test_assets_count_match_chosen_option(self):
         """
-        Test the login functionality with valid credentials.
+        Test if the assets count matches the chosen option from the dropdown.
         """
         # Arrange
         self.home_page.click_on_view_results_dropdown_button()
@@ -51,6 +51,12 @@ class TestDropdownViewResults(unittest.TestCase):
 
         # Assert
         self.assertEqual(option_value, self.home_page.get_current_assets_count_in_page())
+
+    def tearDown(self):
+        """
+        Clean up after each test case by quitting the WebDriver instance.
+        """
+        self.driver.quit()
 
 
 if __name__ == "__main__":

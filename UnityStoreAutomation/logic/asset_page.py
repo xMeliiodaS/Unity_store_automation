@@ -57,7 +57,6 @@ class AssetPage(BaseAppPage):
 
         # Get text from each element in the list
         category_names = list(map(lambda element: element.text, elements))
-        #   category_names = [element.text for element in elements]
         return category_names
 
     def click_on_add_to_my_assets_button(self):

@@ -27,13 +27,17 @@ class TestCartPage(unittest.TestCase):
         self.home_page = HomePage(self.driver)
 
     def tearDown(self) -> None:
+        """
+        Clean up after each test case by removing the asset from
+         the cart and quitting the WebDriver instance.
+        """
         self.cart_page = CartPage(self.driver)
         self.cart_page.click_remove_asset_from_cart_button()
         self.driver.quit()
 
     def test_add_to_cart_successful(self):
         """
-        Test the login functionality with valid credentials.
+        Test adding an asset to the cart and verifying its presence.
         """
         # Arrange
         self.home_page.click_on_asset_link()
