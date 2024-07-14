@@ -55,7 +55,7 @@ class TestEditBio(unittest.TestCase):
         personal_settings_page.click_on_edit_bio_button()
 
         # Act
-        personal_settings_page.fill_bio_input("a" * 201)
+        personal_settings_page.fill_bio_input(self.config["bio_text_exceeding_limit"] * 201)
         personal_settings_page.click_on_save_bio_button()
 
         # Assert
