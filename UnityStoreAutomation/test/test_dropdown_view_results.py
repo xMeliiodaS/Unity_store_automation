@@ -18,7 +18,7 @@ class TestDropdownViewResults(unittest.TestCase):
         This method initializes the browser, loads the configuration,
         and navigates to the specified URL.
         """
-        logging.info("STARTING test for assets count after changing the dropdown option")
+        logging.info("----------STARTING TESTING assets count after changing dropdown option----------")
 
         self.browser = BrowserWrapper()
         self.config = ConfigProvider.load_config_json()
@@ -42,6 +42,7 @@ class TestDropdownViewResults(unittest.TestCase):
 
         # Assert
         self.assertNotEqual(assets_count_before, self.home_page.get_current_assets_count_in_page())
+        logging.info("---------------TEST COMPLETED---------------")
 
     def test_assets_count_match_chosen_option(self):
         """
@@ -56,6 +57,7 @@ class TestDropdownViewResults(unittest.TestCase):
 
         # Assert
         self.assertEqual(option_value, self.home_page.get_current_assets_count_in_page())
+        logging.info("---------------TEST COMPLETED---------------")
 
     def tearDown(self):
         """

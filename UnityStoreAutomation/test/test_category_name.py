@@ -18,7 +18,7 @@ class TestCategory(unittest.TestCase):
         This method initializes the browser, loads the configuration,
         and navigates to the specified URL.
         """
-        logging.info("STARTING test for category name")
+        logging.info("----------STARTING TESTING category name path----------")
 
         self.browser = BrowserWrapper()
         self.config = ConfigProvider.load_config_json()
@@ -52,6 +52,7 @@ class TestCategory(unittest.TestCase):
 
         # Assert
         self.assertIn(category_name, categories_list)
+        logging.info("---------------TEST COMPLETED---------------")
 
 
 if __name__ == "__main__":

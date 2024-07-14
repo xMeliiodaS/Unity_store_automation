@@ -19,7 +19,7 @@ class TestCartPage(unittest.TestCase):
         This method initializes the browser, loads the configuration,
         and navigates to the specified URL.
         """
-        logging.info("STARTING test for add asset to cart")
+        logging.info("----------STARTING TESTING add asset to cart----------")
 
         self.browser = BrowserWrapper()
         self.config = ConfigProvider.load_config_json()
@@ -56,6 +56,7 @@ class TestCartPage(unittest.TestCase):
 
         # Assert
         self.assertEqual(asset_title, asset_in_cart_title)
+        logging.info("---------------TEST COMPLETED---------------")
 
 
 if __name__ == "__main__":

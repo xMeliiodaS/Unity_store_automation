@@ -19,7 +19,7 @@ class TestAddToMyAssetsPage(unittest.TestCase):
         This method initializes the browser, loads the configuration,
         and navigates to the specified URL.
         """
-        logging.info("STARTING TEST to Add asset to my assets")
+        logging.info("----------STARTING TESTING Add asset to My Assets----------")
 
         self.browser = BrowserWrapper()
         self.config = ConfigProvider.load_config_json()
@@ -48,6 +48,7 @@ class TestAddToMyAssetsPage(unittest.TestCase):
 
         # Assert
         self.assertIn(self.asset_name, assets_name_list)
+        logging.info("---------------TEST COMPLETED---------------")
 
     def tearDown(self):
         """

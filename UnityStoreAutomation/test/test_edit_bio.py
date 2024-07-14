@@ -18,7 +18,7 @@ class TestEditBio(unittest.TestCase):
         This method initializes the browser, loads the configuration,
         and navigates to the specified URL.
         """
-        logging.info("STARTING test for the editing BIO")
+        logging.info("----------STARTING TESTING the editing BIO----------")
 
         self.browser = BrowserWrapper()
         self.config = ConfigProvider.load_config_json()
@@ -47,6 +47,7 @@ class TestEditBio(unittest.TestCase):
 
         # Assert
         self.assertEqual(text_to_insert, current_text_in_bio)
+        logging.info("---------------TEST COMPLETED---------------")
 
     def test_edit_bio_with_invalid_data(self):
         """
@@ -58,7 +59,8 @@ class TestEditBio(unittest.TestCase):
 
         # Assert
         current_text_in_bio = self.personal_settings_page.get_current_bio_text()
-        self.assertLessEqual(len(current_text_in_bio), 200)
+        self.assertLessEqual(len(current_text_in_bio), self.config["Exceeding_char_limit"])
+        logging.info("---------------TEST COMPLETED---------------")
 
     def tearDown(self):
         """

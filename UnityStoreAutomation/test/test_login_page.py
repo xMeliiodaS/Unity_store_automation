@@ -17,7 +17,7 @@ class TestLoginPage(unittest.TestCase):
         This method initializes the browser, loads the configuration,
         and navigates to the specified URL.
         """
-        logging.info("STARTING test for logging into Unity Asset Store")
+        logging.info("----------STARTING TESTING logging into Unity Asset Store----------")
 
         # Initialize the undetected ChromeDriver
         self.browser = BrowserWrapper()
@@ -44,6 +44,7 @@ class TestLoginPage(unittest.TestCase):
 
         # Assert
         self.assertTrue(self.home_page.is_logout_displayed())
+        logging.info("---------------TEST COMPLETED---------------")
 
     def test_login_unsuccessful(self):
         """
@@ -57,6 +58,7 @@ class TestLoginPage(unittest.TestCase):
 
         # Assert
         self.assertTrue(login_page.is_login_error_message_displayed())
+        logging.info("---------------TEST COMPLETED---------------")
 
 
 if __name__ == "__main__":
