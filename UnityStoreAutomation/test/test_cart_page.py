@@ -6,6 +6,7 @@ from logic.asset_page import AssetPage
 from logic.cart_page import CartPage
 from logic.home_page import HomePage
 from logic.login_page import LoginPage
+from infra.logging_setup import LoggingSetup
 
 
 class TestCartPage(unittest.TestCase):

@@ -9,7 +9,7 @@ class LoggingSetup:
         filename="../unity_store_logfile.log",
         level=logging.INFO,
         format='%(asctime)s : %(levelname)s : %(message)s',
-        force=False
+        force=True
     )
     # Suppress logging from 'undetected_chromedriver' to avoid clutter
     logging.getLogger('undetected_chromedriver').setLevel(logging.WARNING)

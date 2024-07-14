@@ -42,6 +42,7 @@ class HomePage(BaseAppPage):
         except NoSuchElementException as e:
             print("Element not found nigga", e)
 
+    # Remove this and use the by_index def below
     def click_on_asset_link(self):
         """
         This method waits for all asset link elements to be present, scrolls to the third one,

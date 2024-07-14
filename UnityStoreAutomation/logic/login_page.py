@@ -1,5 +1,5 @@
 import time
-
+import logging
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -67,6 +67,7 @@ class LoginPage(BasePage):
         self.fill_username_input(username)
         self.fill_password_input(password)
         self.click_on_sign_in_button()
+        # logging.info("Logged in into the Unity Asset Store")
 
     def is_login_error_message_displayed(self):
         """
