@@ -17,7 +17,7 @@ class MyAssetsPage(BaseAppPage):
         """
         super().__init__(driver)
 
-    def get_assets_name(self):
+    def get_assets_name_list(self):
         """
         Retrieves the names of all assets displayed on the current page.
 
@@ -30,4 +30,5 @@ class MyAssetsPage(BaseAppPage):
         self.refresh_page()
         elements = WebDriverWait(self._driver, 10).until(
             EC.presence_of_all_elements_located((By.XPATH, self.PACKAGES_NAME)))
-        return [element.text for element in elements]
+        return list(map(lambda element: element.text, elements))
+

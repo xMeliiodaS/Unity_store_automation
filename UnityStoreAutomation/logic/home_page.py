@@ -11,7 +11,7 @@ from infra.logging_setup import logger_setup
 
 class HomePage(BaseAppPage):
     # ------------------Locators related to the assets and asset's view------------------
-    ASSETS_LINK_BUTTON = '//div[@data-test="package-title"]'
+    ASSETS_BUTTON_LIST = '//div[@data-test="package-title"]'
     VIEW_RESULT_DROPDOWN_BUTTON = '//div[@class="_1ofYm" and text() = "24"]'
     DROPDOWN_OPTIONS = '//div[@class="_3BlIq" and (text() = "24" or text()="48" or text()="72" or text()="96")]'
 
@@ -54,7 +54,7 @@ class HomePage(BaseAppPage):
         :param index: The index of the asset link to click.
         """
         elements = WebDriverWait(self._driver, 10).until(
-            EC.presence_of_all_elements_located((By.XPATH, self.ASSETS_LINK_BUTTON)))[index]
+            EC.presence_of_all_elements_located((By.XPATH, self.ASSETS_BUTTON_LIST)))[index]
         self.scroll_to_element(elements)
         elements.click()
         logging.info(f"Clicked on asset at index {index}")
@@ -235,4 +235,4 @@ class HomePage(BaseAppPage):
             int: The number of asset elements currently displayed on the page.
         """
         return len(WebDriverWait(self._driver, 10).until(
-            EC.presence_of_all_elements_located((By.XPATH, self.ASSETS_LINK_BUTTON))))
+            EC.presence_of_all_elements_located((By.XPATH, self.ASSETS_BUTTON_LIST))))

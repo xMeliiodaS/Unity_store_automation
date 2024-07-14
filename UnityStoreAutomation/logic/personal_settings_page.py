@@ -28,7 +28,7 @@ class PersonalSettingsPage(BaseAppPage):
         This method waits for the 'Edit Bio' button to be present and then clicks on it.
         """
         WebDriverWait(self._driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, self.EDIT_BIO))).click()
+            EC.element_to_be_clickable((By.XPATH, self.EDIT_BIO))).click()
         logging.info("Clicked on the Edit Bio button")
 
     def fill_bio_input(self, bio_text):
@@ -55,7 +55,7 @@ class PersonalSettingsPage(BaseAppPage):
         This method waits for the 'Save Bio' button to be present and then clicks on it.
         """
         WebDriverWait(self._driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, self.SAVE_BIO_BUTTON))).click()
+            EC.element_to_be_clickable((By.XPATH, self.SAVE_BIO_BUTTON))).click()
         logging.info("Clicked on the 'Save Bio' button after changing the bio text")
 
     def edit_bio_flow(self, bio_text):

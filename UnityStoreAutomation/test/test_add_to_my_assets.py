@@ -47,7 +47,7 @@ class TestAddToMyAssetsPage(unittest.TestCase):
         my_assets_page = MyAssetsPage(self.driver)
 
         # Assert
-        self.assertIn(self.asset_name, my_assets_page.get_assets_name())
+        self.assertIn(self.asset_name, my_assets_page.get_assets_name_list())
         logging.info("---------------TEST COMPLETED---------------\n")
 
     def tearDown(self):
