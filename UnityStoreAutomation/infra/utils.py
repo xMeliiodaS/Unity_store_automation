@@ -10,8 +10,6 @@ class Utils:
     @staticmethod
     def generate_random_number():
         """
-        Generates a random number between 1 and 7 (inclusive).
-
         This method uses the randint function from the random module to generate
         a random integer within the specified range.
 
@@ -22,7 +20,6 @@ class Utils:
     @staticmethod
     def wait_for_element(action, expected, time_to_sleep, retries):
         """
-        Waits for a specific condition to be met by repeatedly executing an action.
 
         This method repeatedly executes the provided action until the result matches
         the expected value or the number of retries is exhausted. It pauses for a specified

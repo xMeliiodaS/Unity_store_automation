@@ -6,12 +6,12 @@ from logic.base_app_page import BaseAppPage
 
 
 class AssetPage(BaseAppPage):
-    # Locators related to the asset's buttons
+    # ------------------Locators related to the asset's buttons------------------
     ADD_TO_CART_BUTTON = '//div[@id="product-detail-add-to-cart-button-v2"]'
     ASSET_TITLE = '//h1'
     CATEGORIES_PATH_LIST = '//a[@class="zJTLn breadcrumb-nav-element"]'
 
-    # Related to the process of purchasing the asset
+    # ------------------Related to the process of purchasing the asset------------------
     ADD_TO_MY_ASSETS_BUTTON = '//div[@id="product-detail-add-to-cart-button-v2"]'
     ACCEPT_BUTTON = '//button[@label="Accept"]'
 

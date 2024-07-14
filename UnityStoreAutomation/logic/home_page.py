@@ -4,15 +4,15 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from logic.base_app_page import BaseAppPage
-from logic.utils import Utils
-from selenium.webdriver.support.ui import Select
+from infra.utils import Utils
 
 
 class HomePage(BaseAppPage):
-
-    ASSET_LINK = '//div[@data-test="package-title"]'
+    
+    ASSETS_LINK_BUTTON = '//div[@data-test="package-title"]'
     SUB_CATEGORIES = '//a[@class="_1oxj5"]'
 
+    # ------------------Locators related to the pricing------------------
     ASSETS_PRICE_TEXT = '//div[@class="mErEH _223RA"]'
     PRICING_BUTTON = '//strong[text() = "Pricing"]'
     FREE_ASSETS_BUTTON = '//span[text() = "Free Assets"]'
@@ -49,7 +49,7 @@ class HomePage(BaseAppPage):
         and clicks on it.
         """
         element = WebDriverWait(self._driver, 10).until(
-            EC.presence_of_all_elements_located((By.XPATH, self.ASSET_LINK)))[2]
+            EC.presence_of_all_elements_located((By.XPATH, self.ASSETS_LINK_BUTTON)))[2]
         self.scroll_to_element(element)
         element.click()
 
@@ -197,4 +197,4 @@ class HomePage(BaseAppPage):
 
     def get_current_assets_count_in_page(self):
         return len(WebDriverWait(self._driver, 10).until(
-            EC.presence_of_all_elements_located((By.XPATH, self.ASSET_LINK))))
+            EC.presence_of_all_elements_located((By.XPATH, self.ASSETS_LINK_BUTTON))))

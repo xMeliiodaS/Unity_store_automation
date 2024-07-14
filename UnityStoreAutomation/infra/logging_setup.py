@@ -2,6 +2,9 @@ import logging
 
 
 class LoggingSetup:
+    """
+    A class to manage logging configuration for the project.
+    """
     logging.basicConfig(
         filename="../solar_logfile.log",
         level=logging.INFO,
