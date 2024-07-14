@@ -1,8 +1,10 @@
+import logging
 import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from logic.base_app_page import BaseAppPage
+from infra.logging_setup import logger_setup
 
 
 class AssetPage(BaseAppPage):
@@ -32,6 +34,7 @@ class AssetPage(BaseAppPage):
             EC.element_to_be_clickable((By.XPATH, self.ADD_TO_CART_BUTTON)))
         self.scroll_to_element(element)
         element.click()
+        logging.info("Asset got added to the cart")
 
     def get_asset_title(self):
         """
@@ -83,4 +86,6 @@ class AssetPage(BaseAppPage):
         """
         self.click_on_add_to_my_assets_button()
         self.click_on_accept_to_my_assets_button()
+        logging.info("Asset added to the 'my Assets'")
         self.click_on_my_assets_button()
+

@@ -1,6 +1,8 @@
+import logging
 import unittest
 from infra.browser_wrapper import BrowserWrapper
 from infra.config_provider import ConfigProvider
+from infra.logging_setup import logger_setup
 from logic.asset_page import AssetPage
 from logic.home_page import HomePage
 from logic.login_page import LoginPage
@@ -17,12 +19,15 @@ class TestAddToMyAssetsPage(unittest.TestCase):
         This method initializes the browser, loads the configuration,
         and navigates to the specified URL.
         """
+        logging.info("STARTING TEST to Add asset to my assets")
+
         self.browser = BrowserWrapper()
         self.config = ConfigProvider.load_config_json()
         self.driver = self.browser.get_driver(self.config["url"])
 
         self.login_page = LoginPage(self.driver)
         self.login_page.login_flow(self.config["email"], self.config["password"])
+        logging.info(f"Logging in with email: {self.config['email']}")
 
         self.home_page = HomePage(self.driver)
         self.home_page.free_asset_navigation_flow(20)

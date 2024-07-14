@@ -1,6 +1,8 @@
+import logging
 import unittest
 from infra.browser_wrapper import BrowserWrapper
 from infra.config_provider import ConfigProvider
+from infra.logging_setup import logger_setup
 from logic.enum.view_result_count import AssetsPerPageOptions
 from logic.home_page import HomePage
 from logic.login_page import LoginPage
@@ -16,12 +18,15 @@ class TestDropdownViewResults(unittest.TestCase):
         This method initializes the browser, loads the configuration,
         and navigates to the specified URL.
         """
+        logging.info("STARTING test for assets count after changing the dropdown option")
+
         self.browser = BrowserWrapper()
         self.config = ConfigProvider.load_config_json()
         self.driver = self.browser.get_driver(self.config["url"])
 
         self.login_page = LoginPage(self.driver)
         self.login_page.login_flow(self.config["email"], self.config["password"])
+        logging.info(f"Logging in with email: {self.config['email']}")
         self.home_page = HomePage(self.driver)
 
     def test_assets_count_changed_after_dropdown(self):

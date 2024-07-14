@@ -1,6 +1,8 @@
+import logging
 import unittest
 from infra.browser_wrapper import BrowserWrapper
 from infra.config_provider import ConfigProvider
+from infra.logging_setup import logger_setup
 from logic.home_page import HomePage
 from logic.login_page import LoginPage
 
@@ -15,6 +17,8 @@ class TestMinMaxPrice(unittest.TestCase):
         This method initializes the browser, loads the configuration,
         and navigates to the specified URL.
         """
+        logging.info("STARTING test for the max and min price filter")
+
         self.browser = BrowserWrapper()
         self.config = ConfigProvider.load_config_json()
         self.driver = self.browser.get_driver(self.config["url"])

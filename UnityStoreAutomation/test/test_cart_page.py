@@ -2,11 +2,11 @@ import logging
 import unittest
 from infra.browser_wrapper import BrowserWrapper
 from infra.config_provider import ConfigProvider
+from infra.logging_setup import logger_setup
 from logic.asset_page import AssetPage
 from logic.cart_page import CartPage
 from logic.home_page import HomePage
 from logic.login_page import LoginPage
-from infra.logging_setup import logger_setup
 
 
 class TestCartPage(unittest.TestCase):
@@ -19,6 +19,8 @@ class TestCartPage(unittest.TestCase):
         This method initializes the browser, loads the configuration,
         and navigates to the specified URL.
         """
+        logging.info("STARTING test for add asset to cart")
+
         self.browser = BrowserWrapper()
         self.config = ConfigProvider.load_config_json()
         self.driver = self.browser.get_driver(self.config["url"])
