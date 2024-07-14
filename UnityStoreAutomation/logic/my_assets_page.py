@@ -28,7 +28,7 @@ class MyAssetsPage(BaseAppPage):
         """
         time.sleep(1)
         self.refresh_page()
-        elements = WebDriverWait(self._driver, 5).until(
+        elements = WebDriverWait(self._driver, 10).until(
             EC.presence_of_all_elements_located((By.XPATH, self.PACKAGES_NAME)))
         category_names = [element.text for element in elements]
         return category_names

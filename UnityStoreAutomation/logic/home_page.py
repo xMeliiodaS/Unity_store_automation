@@ -48,7 +48,7 @@ class HomePage(BaseAppPage):
         This method waits for all asset link elements to be present, scrolls to the third one,
         and clicks on it.
         """
-        element = WebDriverWait(self._driver, 8).until(
+        element = WebDriverWait(self._driver, 10).until(
             EC.presence_of_all_elements_located((By.XPATH, self.ASSET_LINK)))[2]
         self.scroll_to_element(element)
         element.click()
@@ -75,7 +75,7 @@ class HomePage(BaseAppPage):
 
         :param name: The name of the category to click.
         """
-        element = WebDriverWait(self._driver, 5).until(
+        element = WebDriverWait(self._driver, 10).until(
             EC.presence_of_element_located((By.XPATH, f'//a[text()="{name}"]')))
         element.click()
 
@@ -87,7 +87,7 @@ class HomePage(BaseAppPage):
         and returns its text.
         """
         random_index = Utils.generate_random_number() - 1
-        elements = WebDriverWait(self._driver, 5).until(
+        elements = WebDriverWait(self._driver, 10).until(
             EC.presence_of_all_elements_located((By.XPATH, self.SUB_CATEGORIES)))
         return elements[random_index].text
 
@@ -196,5 +196,5 @@ class HomePage(BaseAppPage):
         raise ValueError(f"Option with value '{value}' not found in dropdown.")
 
     def get_current_assets_count_in_page(self):
-        return len(WebDriverWait(self._driver, 8).until(
+        return len(WebDriverWait(self._driver, 10).until(
             EC.presence_of_all_elements_located((By.XPATH, self.ASSET_LINK))))

@@ -23,5 +23,5 @@ class CartPage(BaseAppPage):
         This method waits for the asset element to be present in the cart
         and then returns its title text.
         """
-        return WebDriverWait(self._driver, 5).until(
+        return WebDriverWait(self._driver, 10).until(
             EC.presence_of_element_located((By.XPATH, self.ASSET_IN_CART))).text

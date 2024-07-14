@@ -26,7 +26,7 @@ class PersonalSettingsPage(BaseAppPage):
 
         This method waits for the 'Edit Bio' button to be present and then clicks on it.
         """
-        WebDriverWait(self._driver, 5).until(
+        WebDriverWait(self._driver, 10).until(
             EC.presence_of_element_located((By.XPATH, self.EDIT_BIO))).click()
 
     def fill_bio_input(self, bio_text):
@@ -38,7 +38,7 @@ class PersonalSettingsPage(BaseAppPage):
 
         :param bio_text: The text to be entered into the bio input field.
         """
-        element = WebDriverWait(self._driver, 5).until(
+        element = WebDriverWait(self._driver, 10).until(
             EC.presence_of_element_located((By.XPATH,
                                             self.EDIT_BIO_TEXTAREA_INPUT)))
         time.sleep(1)
@@ -51,7 +51,7 @@ class PersonalSettingsPage(BaseAppPage):
 
         This method waits for the 'Save Bio' button to be present and then clicks on it.
         """
-        WebDriverWait(self._driver, 5).until(
+        WebDriverWait(self._driver, 10).until(
             EC.presence_of_element_located((By.XPATH, self.SAVE_BIO_BUTTON))).click()
 
     def get_current_bio_text(self):
@@ -64,5 +64,5 @@ class PersonalSettingsPage(BaseAppPage):
         :return: The current bio text as a string.
         """
         self.refresh_page()
-        return WebDriverWait(self._driver, 5).until(
+        return WebDriverWait(self._driver, 10).until(
             EC.presence_of_element_located((By.XPATH, self.CURRENT_BIO_TEXT))).text

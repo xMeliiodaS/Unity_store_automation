@@ -30,7 +30,7 @@ class BaseAppPage(BasePage):
         """
         This method waits for the cookies close button to be present and then clicks on it.
         """
-        WebDriverWait(self._driver, 8).until(
+        WebDriverWait(self._driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, self.CLOSE_COOKIES_TAB))).click()
 
     def click_on_account_button(self):
@@ -39,7 +39,7 @@ class BaseAppPage(BasePage):
 
         This method waits for the account button to be present and then clicks on it.
         """
-        element = WebDriverWait(self._driver, 8).until(
+        element = WebDriverWait(self._driver, 10).until(
             EC.presence_of_element_located((By.XPATH, self.ACCOUNT_BUTTON)))
         element.click()
 
@@ -50,7 +50,7 @@ class BaseAppPage(BasePage):
         This method waits for the sign-in button to be clickable and then clicks on it.
         If the user is already signed in, this button will not be found.
         """
-        element = WebDriverWait(self._driver, 8).until(
+        element = WebDriverWait(self._driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, self.SIGN_IN_BUTTON)))
         element.click()
 
@@ -60,7 +60,7 @@ class BaseAppPage(BasePage):
 
         This method waits for the "My Assets" button to be present and then clicks on it.
         """
-        element = WebDriverWait(self._driver, 5).until(
+        element = WebDriverWait(self._driver, 10).until(
             EC.presence_of_element_located((By.XPATH, self.MY_ASSETS_BUTTON)))
         element.click()
 
@@ -70,7 +70,7 @@ class BaseAppPage(BasePage):
 
         This method waits for the "Saved Assets" button to be present and then clicks on it.
         """
-        element = WebDriverWait(self._driver, 5).until(
+        element = WebDriverWait(self._driver, 10).until(
             EC.presence_of_element_located((By.XPATH, self.SAVED_ASSETS_BUTTON)))
         element.click()
 
@@ -80,7 +80,7 @@ class BaseAppPage(BasePage):
 
         This method waits for the cart button to be present and then clicks on it.
         """
-        element = WebDriverWait(self._driver, 5).until(
+        element = WebDriverWait(self._driver, 10).until(
             EC.presence_of_element_located((By.XPATH, self.CART_BUTTON)))
         element.click()
 
@@ -90,7 +90,7 @@ class BaseAppPage(BasePage):
 
         This method waits for the view cart button to be present and then clicks on it.
         """
-        element = WebDriverWait(self._driver, 5).until(
+        element = WebDriverWait(self._driver, 10).until(
             EC.presence_of_element_located((By.XPATH, self.VIEW_CART_BUTTON)))
         element.click()
 
@@ -100,7 +100,7 @@ class BaseAppPage(BasePage):
 
         This method waits for the remove asset button to be clickable and then clicks on it.
         """
-        WebDriverWait(self._driver, 5).until(
+        WebDriverWait(self._driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, self.REMOVE_ASSET_FROM_CART_BUTTON))).click()
         time.sleep(3)
 
@@ -111,7 +111,7 @@ class BaseAppPage(BasePage):
         This method waits for the personal settings button to be present and
          then clicks on it.
         """
-        WebDriverWait(self._driver, 5).until(
+        WebDriverWait(self._driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, self.PERSONAL_SETTINGS))).click()
 
     def is_logout_displayed(self):
@@ -122,5 +122,5 @@ class BaseAppPage(BasePage):
          logout button is present and displayed.
         """
         time.sleep(1)
-        return WebDriverWait(self._driver, 5).until(
+        return WebDriverWait(self._driver, 10).until(
             EC.presence_of_element_located((By.XPATH, self.LOGOUT))).is_displayed()

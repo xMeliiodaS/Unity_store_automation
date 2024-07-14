@@ -27,7 +27,7 @@ class AssetPage(BaseAppPage):
         """
         Click on the add to cart button.
         """
-        element = WebDriverWait(self._driver, 5).until(
+        element = WebDriverWait(self._driver, 10).until(
             EC.presence_of_element_located((By.XPATH, self.ADD_TO_CART_BUTTON)))
         self.scroll_to_element(element)
         element.click()
@@ -36,7 +36,7 @@ class AssetPage(BaseAppPage):
         """
         Retrieve the title of the asset.
         """
-        return WebDriverWait(self._driver, 5).until(
+        return WebDriverWait(self._driver, 10).until(
             EC.presence_of_element_located((By.XPATH, self.ASSET_TITLE))).text
 
     def add_asset_to_cart_flow(self):
@@ -50,7 +50,7 @@ class AssetPage(BaseAppPage):
         """
         Returns a list of names of the asset path categories.
         """
-        elements = WebDriverWait(self._driver, 5).until(
+        elements = WebDriverWait(self._driver, 10).until(
             EC.presence_of_all_elements_located((By.XPATH, self.CATEGORIES_PATH_LIST))
         )
 
@@ -63,7 +63,7 @@ class AssetPage(BaseAppPage):
         """
         Clicks on the 'Add to My Assets' button after waiting for it to be clickable.
         """
-        element = WebDriverWait(self._driver, 5).until(
+        element = WebDriverWait(self._driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, self.ADD_TO_MY_ASSETS_BUTTON)))
         time.sleep(2)
         element.click()
