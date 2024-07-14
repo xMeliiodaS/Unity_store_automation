@@ -27,8 +27,9 @@ class AssetPage(BaseAppPage):
         """
         Click on the add to cart button.
         """
+        time.sleep(1.5)
         element = WebDriverWait(self._driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, self.ADD_TO_CART_BUTTON)))
+            EC.element_to_be_clickable((By.XPATH, self.ADD_TO_CART_BUTTON)))
         self.scroll_to_element(element)
         element.click()
 

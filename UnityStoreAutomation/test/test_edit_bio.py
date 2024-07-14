@@ -23,7 +23,6 @@ class TestEditBio(unittest.TestCase):
 
         self.login_page = LoginPage(self.driver)
         self.login_page.login_flow(self.config["email"], self.config["password"])
-        logging.info("Logged into the unity asset store")
         self.home_page = HomePage(self.driver)
 
         self.home_page.click_on_account_button()

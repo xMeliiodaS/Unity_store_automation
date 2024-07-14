@@ -1,3 +1,4 @@
+import logging
 import unittest
 from infra.browser_wrapper import BrowserWrapper
 from infra.config_provider import ConfigProvider
@@ -38,7 +39,7 @@ class TestCartPage(unittest.TestCase):
         self.home_page.click_on_asset_link()
         asset_page = AssetPage(self.driver)
         asset_title = asset_page.get_asset_title()
-
+        logging.info("MAP IS DISPLAYED.")
         # Act
         asset_page.add_asset_to_cart_flow()
         cart_page = CartPage(self.driver)

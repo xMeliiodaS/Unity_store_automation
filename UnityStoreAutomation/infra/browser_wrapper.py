@@ -1,5 +1,3 @@
-import time
-
 from selenium import webdriver
 from infra.config_provider import ConfigProvider
 from selenium import common as c
