@@ -6,7 +6,7 @@ from logic.asset_page import AssetPage
 from logic.cart_page import CartPage
 from logic.home_page import HomePage
 from logic.login_page import LoginPage
-from infra.logging_setup import LoggingSetup
+from infra.logging_setup import logger_setup
 
 
 class TestCartPage(unittest.TestCase):
@@ -25,6 +25,8 @@ class TestCartPage(unittest.TestCase):
 
         self.login_page = LoginPage(self.driver)
         self.login_page.login_flow(self.config["email"], self.config["password"])
+        logging.info(f"Logging in with email: {self.config['email']}")
+
         self.home_page = HomePage(self.driver)
 
     def tearDown(self) -> None:
@@ -44,7 +46,7 @@ class TestCartPage(unittest.TestCase):
         self.home_page.click_on_asset_link()
         asset_page = AssetPage(self.driver)
         asset_title = asset_page.get_asset_title()
-        logging.info("MAP IS DISPLAYED.")
+
         # Act
         asset_page.add_asset_to_cart_flow()
         cart_page = CartPage(self.driver)

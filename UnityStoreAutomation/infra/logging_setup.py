@@ -13,3 +13,7 @@ class LoggingSetup:
     )
     # Suppress logging from 'undetected_chromedriver' to avoid clutter
     logging.getLogger('undetected_chromedriver').setLevel(logging.WARNING)
+
+
+# Create an instance of LoggingSetup to configure logging when this module is imported
+logger_setup = LoggingSetup()
