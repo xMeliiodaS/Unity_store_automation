@@ -43,7 +43,7 @@ class TestCartPage(unittest.TestCase):
         Test adding an asset to the cart and verifying its presence.
         """
         # Arrange
-        self.home_page.click_on_asset_link()
+        self.home_page.click_on_asset_link_by_index(2)
         asset_page = AssetPage(self.driver)
         asset_title = asset_page.get_asset_title()
 

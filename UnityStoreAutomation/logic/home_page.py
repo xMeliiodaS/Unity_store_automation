@@ -42,17 +42,6 @@ class HomePage(BaseAppPage):
         except NoSuchElementException as e:
             print("Element not found nigga", e)
 
-    # Remove this and use the by_index def below
-    def click_on_asset_link(self):
-        """
-        This method waits for all asset link elements to be present, scrolls to the third one,
-        and clicks on it.
-        """
-        element = WebDriverWait(self._driver, 10).until(
-            EC.presence_of_all_elements_located((By.XPATH, self.ASSETS_LINK_BUTTON)))[2]
-        self.scroll_to_element(element)
-        element.click()
-
     def click_on_asset_link_by_index(self, index):
         """
         Clicks on an asset link by its index.
@@ -63,9 +52,9 @@ class HomePage(BaseAppPage):
         :param index: The index of the asset link to click.
         """
         elements = WebDriverWait(self._driver, 10).until(
-            EC.presence_of_all_elements_located((By.XPATH, f'(//div[@data-test="package-title"])')))
-        self.scroll_to_element(elements[index])
-        elements[index].click()
+            EC.presence_of_all_elements_located((By.XPATH, self.ASSETS_LINK_BUTTON)))[index]
+        self.scroll_to_element(elements)
+        elements.click()
 
     def click_on_category_by_name(self, name):
         """
