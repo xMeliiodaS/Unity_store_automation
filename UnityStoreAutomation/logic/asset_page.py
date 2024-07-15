@@ -43,7 +43,7 @@ class AssetPage(BaseAppPage):
         return WebDriverWait(self._driver, 10).until(
             EC.presence_of_element_located((By.XPATH, self.ASSET_TITLE))).text
 
-    def add_asset_to_cart_flow(self):
+    def add_asset_to_cart_and_view_flow(self):
         """
         Adds the asset to the cart and then navigates to view the cart.
         """

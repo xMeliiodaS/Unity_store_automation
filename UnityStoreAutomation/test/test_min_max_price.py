@@ -4,7 +4,6 @@ from infra.browser_wrapper import BrowserWrapper
 from infra.config_provider import ConfigProvider
 from infra.logging_setup import logger_setup
 from logic.home_page import HomePage
-from logic.login_page import LoginPage
 
 
 class TestMinMaxPrice(unittest.TestCase):
@@ -21,8 +20,6 @@ class TestMinMaxPrice(unittest.TestCase):
         self.config = ConfigProvider.load_config_json()
         self.driver = self.browser.get_driver(self.config["url"])
 
-        self.login_page = LoginPage(self.driver)
-        self.login_page.login_flow(self.config["email"], self.config["password"])
         self.home_page = HomePage(self.driver)
 
     def test_min_max_price_filter(self):
@@ -30,7 +27,6 @@ class TestMinMaxPrice(unittest.TestCase):
         Test filtering assets by valid minimum and maximum prices.
         """
         logging.info("----------TESTING filter assets by minimum and maximum prices STARTED----------")
-        logging.info(f"Logged in with email: {self.config['email']}")
 
         # Arrange
         self.home_page.click_on_pricing_button()
@@ -39,11 +35,7 @@ class TestMinMaxPrice(unittest.TestCase):
 
         # Act
         sorted_prices = self.home_page.process_and_sort_asset_prices()
-        print(sorted_prices)
-        print(self.config["max_price"])
-        print(self.config["min_price"])
-        print(sorted_prices[0])
-        print(sorted_prices[-1])
+
         # Assert
         self.assertGreaterEqual(sorted_prices[0], self.config["min_price"], "Minimum price is not greater"
                                                                             " than or equal to $500")

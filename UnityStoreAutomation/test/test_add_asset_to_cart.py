@@ -51,7 +51,7 @@ class TestCartPage(unittest.TestCase):
         asset_title = asset_page.get_asset_title()
 
         # Act
-        asset_page.add_asset_to_cart_flow()
+        asset_page.add_asset_to_cart_and_view_flow()
         cart_page = CartPage(self.driver)
 
         # Assert
