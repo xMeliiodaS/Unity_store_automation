@@ -40,12 +40,6 @@
 14-07-2024 - 19:39:06: INFO: Clicked on the Submit Price button
 14-07-2024 - 19:39:07: INFO: ---------------TEST COMPLETED---------------
 
-14-07-2024 - 19:40:08: INFO: ----------TESTING login with valid credentials STARTED----------
-14-07-2024 - 19:40:26: INFO: ---------------TEST COMPLETED---------------
-
-14-07-2024 - 19:40:34: INFO: ----------TESTING login with invalid credentials STARTED----------
-14-07-2024 - 19:40:42: INFO: ---------------TEST COMPLETED---------------
-
 15-07-2024 - 09:12:28: INFO: ----------SETUP for test has started----------
 15-07-2024 - 09:12:53: INFO: ----------TESTING add asset to cart and verify presence STARTED----------
 15-07-2024 - 09:12:53: INFO: Logged in with email: zedanzedanzezob@gmail.com
@@ -67,4 +61,20 @@
 15-07-2024 - 09:25:33: INFO: Click on Add to cart icon
 15-07-2024 - 09:25:36: INFO: View cart
 15-07-2024 - 09:25:36: INFO: ---------------TEST COMPLETED---------------
+
+15-07-2024 - 09:47:19: INFO: ----------SETUP for test has started----------
+15-07-2024 - 09:47:41: INFO: ----------TESTING add asset to cart and verify presence STARTED----------
+15-07-2024 - 09:47:41: INFO: Logged in with email: zedanzedanzezob@gmail.com
+15-07-2024 - 09:47:43: INFO: Clicked on asset at index 2
+15-07-2024 - 09:47:45: INFO: Click on Add to cart icon
+15-07-2024 - 09:47:48: INFO: View cart
+15-07-2024 - 09:47:48: INFO: ---------------TEST COMPLETED---------------
+
+15-07-2024 - 09:56:54: INFO: ----------SETUP for test has started----------
+15-07-2024 - 09:57:21: INFO: ----------TESTING add asset to cart and verify presence STARTED----------
+15-07-2024 - 09:57:21: INFO: Logged in with email: zedanzedanzezob@gmail.com
+15-07-2024 - 09:57:25: INFO: Clicked on asset at index 2
+15-07-2024 - 09:57:28: INFO: Click on Add to cart icon
+15-07-2024 - 09:57:32: INFO: View cart
+15-07-2024 - 09:57:32: INFO: ---------------TEST COMPLETED---------------
 

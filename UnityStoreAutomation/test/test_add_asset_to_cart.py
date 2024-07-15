@@ -35,7 +35,7 @@ class TestCartPage(unittest.TestCase):
          the cart and quitting the WebDriver instance.
         """
         self.cart_page = CartPage(self.driver)
-        self.cart_page.click_remove_asset_from_cart_button()
+        self.cart_page.click_remove_all_assets_from_cart_button()
         self.driver.quit()
 
     def test_add_to_cart_successful(self):
@@ -55,7 +55,8 @@ class TestCartPage(unittest.TestCase):
         cart_page = CartPage(self.driver)
 
         # Assert
-        self.assertEqual(asset_title, cart_page.get_asset_in_cart_title())
+        self.assertEqual(asset_title, cart_page.get_asset_in_cart_title(), "The titles are not equal which mean the"
+                                                                           "asset has not been added to the cart")
         logging.info("---------------TEST COMPLETED---------------\n")
 
 
