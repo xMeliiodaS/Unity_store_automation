@@ -46,7 +46,7 @@ class TestCartPage(unittest.TestCase):
         logging.info(f"Logged in with email: {self.config['email']}")
 
         # Arrange
-        self.home_page.click_on_asset_link_by_index(2)
+        self.home_page.click_on_asset_link_by_index(self.config['asset_index'])
         asset_page = AssetPage(self.driver)
         asset_title = asset_page.get_asset_title()
 

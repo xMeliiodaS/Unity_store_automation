@@ -49,14 +49,25 @@ class HomePage(BaseAppPage):
         Clicks on an asset link by its index.
 
         This method waits for all asset link elements to be present, scrolls to the specified index,
-        and clicks on it.
+        and clicks on it. If the index is out of range, it clicks on the last available asset.
 
         :param index: The index of the asset link to click.
         """
         elements = WebDriverWait(self._driver, 10).until(
-            EC.presence_of_all_elements_located((By.XPATH, self.ASSETS_BUTTON_LIST)))[index]
-        self.scroll_to_element(elements)
-        elements.click()
+            EC.presence_of_all_elements_located((By.XPATH, self.ASSETS_BUTTON_LIST)))
+
+        assets_count = len(elements)
+        if assets_count == 0:
+            logging.error("No assets found on the page.")
+            raise Exception("No assets available to click.")
+
+        if index >= assets_count:
+            logging.warning(f"Index {index} is out of range. Clicking on the last available asset.")
+            index = assets_count - 1
+
+        element = elements[index]
+        self.scroll_to_element(element)
+        element.click()
         logging.info(f"Clicked on asset at index {index}")
 
     def click_on_category_by_name(self, name):
