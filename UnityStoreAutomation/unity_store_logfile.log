@@ -1,93 +1,119 @@
+14-07-2024 - 19:15:49: INFO: ------------------------------SETUP------------------------------
 14-07-2024 - 19:15:49: INFO: ----------TESTING add asset to cart and verify presence STARTED----------
 14-07-2024 - 19:15:49: INFO: Logged in with email: zedanzedanzezob@gmail.com
 14-07-2024 - 19:15:52: INFO: Clicked on asset at index 2
 14-07-2024 - 19:15:54: INFO: Click on Add to cart icon
 14-07-2024 - 19:15:56: INFO: View cart
-14-07-2024 - 19:15:57: INFO: ---------------TEST COMPLETED---------------
+14-07-2024 - 19:15:57: INFO: --------------------------TEST COMPLETED---------------------------
 
+
+14-07-2024 - 19:17:37: INFO: ------------------------------SETUP------------------------------
 14-07-2024 - 19:17:37: INFO: ----------TESTING if a category name exists in the asset's path STARTED----------
 14-07-2024 - 19:17:37: INFO: Logged in with email: zedanzedanzezob@gmail.com
 14-07-2024 - 19:17:41: INFO: Clicked on 'Vegetation' category
 14-07-2024 - 19:17:47: INFO: Clicked on asset at index 2
-14-07-2024 - 19:17:47: INFO: ---------------TEST COMPLETED---------------
+14-07-2024 - 19:17:47: INFO: --------------------------TEST COMPLETED---------------------------
 
+
+14-07-2024 - 19:20:44: INFO: ------------------------------SETUP------------------------------
 14-07-2024 - 19:20:44: INFO: ----------TESTING assets count match chosen option from dropdown STARTED----------
 14-07-2024 - 19:20:44: INFO: Logged in with email: zedanzedanzezob@gmail.com
 14-07-2024 - 19:20:45: INFO: Clicked on the 'View Results' dropdown button
 14-07-2024 - 19:20:45: INFO: Selected option from dropdown with value '72'
-14-07-2024 - 19:20:47: INFO: ---------------TEST COMPLETED---------------
+14-07-2024 - 19:20:47: INFO: --------------------------TEST COMPLETED---------------------------
 
-14-07-2024 - 19:28:18: INFO: Clicked on the personal settings button
-14-07-2024 - 19:28:19: INFO: Clicked on the Edit Bio button
+
+14-07-2024 - 19:28:19: INFO: ------------------------------SETUP------------------------------
 14-07-2024 - 19:28:19: INFO: ----------TESTING edit bio functionality STARTED----------
 14-07-2024 - 19:28:19: INFO: Logged in with email: zedanzedanzezob@gmail.com
 14-07-2024 - 19:28:20: INFO: Filled the bio input
 14-07-2024 - 19:28:20: INFO: Clicked on the 'Save Bio' button after changing the bio text
-14-07-2024 - 19:28:24: INFO: ---------------TEST COMPLETED---------------
+14-07-2024 - 19:28:24: INFO: --------------------------TEST COMPLETED---------------------------
 
-14-07-2024 - 19:29:31: INFO: Clicked on the personal settings button
-14-07-2024 - 19:29:32: INFO: Clicked on the Edit Bio button
+
+14-07-2024 - 19:29:32: INFO: ------------------------------SETUP------------------------------
 14-07-2024 - 19:29:32: INFO: ----------TESTING edit bio with exceeding character limit STARTED----------
 14-07-2024 - 19:29:32: INFO: Logged in with email: zedanzedanzezob@gmail.com
 14-07-2024 - 19:29:35: INFO: Filled the bio input
 14-07-2024 - 19:29:35: INFO: Clicked on the 'Save Bio' button after changing the bio text
-14-07-2024 - 19:29:39: INFO: ---------------TEST COMPLETED---------------
+14-07-2024 - 19:29:39: INFO: --------------------------TEST COMPLETED---------------------------
 
+
+14-07-2024 - 19:39:05: INFO: ------------------------------SETUP------------------------------
 14-07-2024 - 19:39:05: INFO: ----------TESTING filter assets by minimum and maximum prices STARTED----------
 14-07-2024 - 19:39:05: INFO: Logged in with email: zedanzedanzezob@gmail.com
 14-07-2024 - 19:39:05: INFO: Setting maximum price input to: 1000
 14-07-2024 - 19:39:06: INFO: Setting minimum price input to: 500
 14-07-2024 - 19:39:06: INFO: Clicked on the Submit Price button
-14-07-2024 - 19:39:07: INFO: ---------------TEST COMPLETED---------------
+14-07-2024 - 19:39:07: INFO: --------------------------TEST COMPLETED---------------------------
 
-15-07-2024 - 09:12:28: INFO: ----------SETUP for test has started----------
+
+15-07-2024 - 09:12:28: INFO: ------------------------------SETUP------------------------------
 15-07-2024 - 09:12:53: INFO: ----------TESTING add asset to cart and verify presence STARTED----------
 15-07-2024 - 09:12:53: INFO: Logged in with email: zedanzedanzezob@gmail.com
 15-07-2024 - 09:12:56: INFO: Clicked on asset at index 2
 15-07-2024 - 09:12:59: INFO: Click on Add to cart icon
+15-07-2024 - 09:12:59: INFO: --------------------------TEST COMPLETED---------------------------
 
-15-07-2024 - 09:14:02: INFO: ----------SETUP for test has started----------
+
+15-07-2024 - 09:14:02: INFO: ------------------------------SETUP------------------------------
 15-07-2024 - 09:14:25: INFO: ----------TESTING add asset to cart and verify presence STARTED----------
 15-07-2024 - 09:14:25: INFO: Logged in with email: zedanzedanzezob@gmail.com
 15-07-2024 - 09:14:28: INFO: Clicked on asset at index 2
 15-07-2024 - 09:14:29: INFO: Click on Add to cart icon
 15-07-2024 - 09:14:32: INFO: View cart
-15-07-2024 - 09:14:32: INFO: ---------------TEST COMPLETED---------------
+15-07-2024 - 09:14:32: INFO: --------------------------TEST COMPLETED---------------------------
 
-15-07-2024 - 09:25:06: INFO: ----------SETUP for test has started----------
+
+15-07-2024 - 09:25:06: INFO: ------------------------------SETUP------------------------------
 15-07-2024 - 09:25:29: INFO: ----------TESTING add asset to cart and verify presence STARTED----------
 15-07-2024 - 09:25:29: INFO: Logged in with email: zedanzedanzezob@gmail.com
 15-07-2024 - 09:25:31: INFO: Clicked on asset at index 2
 15-07-2024 - 09:25:33: INFO: Click on Add to cart icon
 15-07-2024 - 09:25:36: INFO: View cart
-15-07-2024 - 09:25:36: INFO: ---------------TEST COMPLETED---------------
+15-07-2024 - 09:25:36: INFO: --------------------------TEST COMPLETED---------------------------
 
-15-07-2024 - 09:47:19: INFO: ----------SETUP for test has started----------
+
+15-07-2024 - 09:47:19: INFO: ------------------------------SETUP------------------------------
 15-07-2024 - 09:47:41: INFO: ----------TESTING add asset to cart and verify presence STARTED----------
 15-07-2024 - 09:47:41: INFO: Logged in with email: zedanzedanzezob@gmail.com
 15-07-2024 - 09:47:43: INFO: Clicked on asset at index 2
 15-07-2024 - 09:47:45: INFO: Click on Add to cart icon
 15-07-2024 - 09:47:48: INFO: View cart
-15-07-2024 - 09:47:48: INFO: ---------------TEST COMPLETED---------------
+15-07-2024 - 09:47:48: INFO: --------------------------TEST COMPLETED---------------------------
 
-15-07-2024 - 09:56:54: INFO: ----------SETUP for test has started----------
+
+15-07-2024 - 09:56:54: INFO: ------------------------------SETUP------------------------------
 15-07-2024 - 09:57:21: INFO: ----------TESTING add asset to cart and verify presence STARTED----------
 15-07-2024 - 09:57:21: INFO: Logged in with email: zedanzedanzezob@gmail.com
 15-07-2024 - 09:57:25: INFO: Clicked on asset at index 2
 15-07-2024 - 09:57:28: INFO: Click on Add to cart icon
 15-07-2024 - 09:57:32: INFO: View cart
-15-07-2024 - 09:57:32: INFO: ---------------TEST COMPLETED---------------
+15-07-2024 - 09:57:32: INFO: --------------------------TEST COMPLETED---------------------------
 
+
+15-07-2024 - 13:36:01: INFO: ------------------------------SETUP------------------------------
 15-07-2024 - 13:36:01: INFO: ----------TESTING filter assets by minimum and maximum prices STARTED----------
 15-07-2024 - 13:36:01: INFO: Logged in with email: zedanzedanzezob@gmail.com
 15-07-2024 - 13:36:01: INFO: Setting maximum price input to: 1000
 15-07-2024 - 13:36:01: INFO: Setting minimum price input to: 500
 15-07-2024 - 13:36:01: INFO: Clicked on the Submit Price button
-15-07-2024 - 13:36:03: INFO: ---------------TEST COMPLETED---------------
+15-07-2024 - 13:36:03: INFO: --------------------------TEST COMPLETED---------------------------
 
+
+15-07-2024 - 13:43:37: INFO: ------------------------------SETUP------------------------------
 15-07-2024 - 13:43:37: INFO: ----------TESTING filter assets by minimum and maximum prices STARTED----------
 15-07-2024 - 13:43:37: INFO: Setting maximum price input to: 1000
 15-07-2024 - 13:43:37: INFO: Setting minimum price input to: 500
 15-07-2024 - 13:43:37: INFO: Clicked on the Submit Price button
-15-07-2024 - 13:43:38: INFO: ---------------TEST COMPLETED---------------
+15-07-2024 - 13:43:38: INFO: --------------------------TEST COMPLETED---------------------------
+
+
+15-07-2024 - 17:49:29: INFO: ------------------------------SETUP------------------------------
+15-07-2024 - 17:49:47: INFO: ----------TESTING add asset to cart and verify presence STARTED----------
+15-07-2024 - 17:49:47: INFO: Logged in with email: zedanzedanzezob@gmail.com
+15-07-2024 - 17:49:49: INFO: Clicked on asset at index 2
+15-07-2024 - 17:49:50: INFO: Click on Add to cart icon
+15-07-2024 - 17:49:53: INFO: View cart
+15-07-2024 - 17:49:54: INFO: --------------------------TEST COMPLETED---------------------------
 

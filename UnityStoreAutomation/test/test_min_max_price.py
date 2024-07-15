@@ -16,6 +16,8 @@ class TestMinMaxPrice(unittest.TestCase):
         This method initializes the browser, loads the configuration,
         and navigates to the specified URL.
         """
+        logging.info("------------------------------SETUP------------------------------")
+
         self.browser = BrowserWrapper()
         self.config = ConfigProvider.load_config_json()
         self.driver = self.browser.get_driver(self.config["url"])
@@ -41,7 +43,7 @@ class TestMinMaxPrice(unittest.TestCase):
                                                                             " than or equal to $500")
         self.assertLessEqual(sorted_prices[-1], self.config["max_price"], "Maximum price is not less"
                                                                           " than or equal to $1000")
-        logging.info("---------------TEST COMPLETED---------------\n")
+        logging.info("--------------------------TEST COMPLETED---------------------------\n\n")
 
     def tearDown(self):
         """

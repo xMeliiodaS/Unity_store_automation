@@ -17,7 +17,8 @@ class TestLoginPage(unittest.TestCase):
         This method initializes the browser, loads the configuration,
         and navigates to the specified URL.
         """
-        # Initialize the undetected ChromeDriver
+        logging.info("------------------------------SETUP------------------------------")
+
         self.browser = BrowserWrapper()
         self.config = ConfigProvider.load_config_json()
         self.driver = self.browser.get_driver(self.config["url"])
@@ -44,7 +45,7 @@ class TestLoginPage(unittest.TestCase):
 
         # Assert
         self.assertTrue(self.home_page.is_logout_displayed())
-        logging.info("---------------TEST COMPLETED---------------\n")
+        logging.info("--------------------------TEST COMPLETED---------------------------\n\n")
 
     def test_login_unsuccessful(self):
         """
@@ -60,7 +61,7 @@ class TestLoginPage(unittest.TestCase):
 
         # Assert
         self.assertTrue(login_page.is_login_error_message_displayed())
-        logging.info("---------------TEST COMPLETED---------------\n")
+        logging.info("--------------------------TEST COMPLETED---------------------------\n\n")
 
 
 if __name__ == "__main__":

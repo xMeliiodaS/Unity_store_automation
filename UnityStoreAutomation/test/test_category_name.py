@@ -18,6 +18,8 @@ class TestCategory(unittest.TestCase):
         This method initializes the browser, loads the configuration,
         and navigates to the specified URL.
         """
+        logging.info("------------------------------SETUP------------------------------")
+
         self.browser = BrowserWrapper()
         self.config = ConfigProvider.load_config_json()
         self.driver = self.browser.get_driver(self.config["url"])
@@ -51,7 +53,7 @@ class TestCategory(unittest.TestCase):
 
         # Assert
         self.assertIn(category_name, asset_page.get_asset_path_categories_list_names())
-        logging.info("---------------TEST COMPLETED---------------\n")
+        logging.info("--------------------------TEST COMPLETED---------------------------\n\n")
 
 
 if __name__ == "__main__":

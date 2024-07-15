@@ -19,7 +19,7 @@ class TestCartPage(unittest.TestCase):
         This method initializes the browser, loads the configuration,
         and navigates to the specified URL.
         """
-        logging.info("----------SETUP for test has started----------")
+        logging.info("------------------------------SETUP------------------------------")
         self.browser = BrowserWrapper()
         self.config = ConfigProvider.load_config_json()
         self.driver = self.browser.get_driver(self.config["url"])
@@ -57,7 +57,7 @@ class TestCartPage(unittest.TestCase):
         # Assert
         self.assertEqual(asset_title, cart_page.get_asset_in_cart_title(), "The titles are not equal which mean the"
                                                                            "asset has not been added to the cart")
-        logging.info("---------------TEST COMPLETED---------------\n")
+        logging.info("--------------------------TEST COMPLETED---------------------------\n\n")
 
 
 if __name__ == "__main__":
