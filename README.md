@@ -1,54 +1,27 @@
-Unity Asset Store Testing Framework
-Overview
-This repository contains a testing framework for automating tests on the Unity Asset Store website. The framework utilizes Selenium for browser automation to test various functionalities such as adding assets to the cart, filtering by price, and editing user bio information.
+# Unity Asset Store Testing Framework
 
-Installation
-To set up the testing framework locally, follow these steps:
+## Overview
+This repository contains a testing framework for automating tests on the Unity Asset Store using Selenium WebDriver.
 
-Clone the repository:
+## Installation
 
-bash
-Copy code
-git clone https://github.com/your-username/unity-asset-store-testing.git
-cd unity-asset-store-testing
-Install dependencies:
+### Prerequisites
+- Python 3.x installed
+- Pip package manager installed
+- Chrome WebDriver installed (if using Chrome)
 
-Ensure you have Python installed. Then, install the required Python packages using pip:
+### Setup
+1. Clone the repository:
+2. Install dependencies:
+This installs Selenium and other required dependencies listed in `requirements.txt`.
 
-bash
-Copy code
-pip install -r requirements.txt
-This installs necessary packages including Selenium for browser automation.
+3. Download and set up Chrome WebDriver:
+- Download Chrome WebDriver from [here](https://sites.google.com/a/chromium.org/chromedriver/downloads).
+- Extract the executable file to a directory included in your system's PATH environment variable.
 
-WebDriver setup:
+## Usage
+- Run the tests using your preferred test runner. For example:## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-You need to download the appropriate WebDriver executable for your browser and operating system:
-
-Chrome: ChromeDriver
-Firefox: GeckoDriver
-Make sure the WebDriver executable is either in your PATH or specify its location in your test scripts.
-
-Usage
-Running tests:
-
-You can run the tests using pytest. For example:
-
-bash
-Copy code
-pytest test_suite.py
-Replace test_suite.py with your actual test suite file.
-
-Writing tests:
-
-Tests are written using Python and pytest framework.
-Customize test scripts in accordance with your testing requirements.
-Adding new tests:
-
-Create new test scripts in the test directory.
-Organize tests into logical suites for better management.
-Contributing
-Contributions are welcome! If you find any issues or have suggestions for improvement, please open an issue or create a pull request.
-
-License
-This project is licensed under the MIT License.
-
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
