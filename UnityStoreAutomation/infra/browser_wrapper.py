@@ -30,6 +30,8 @@ class BrowserWrapper:
                 self._driver = uc.Chrome(options=options)
             elif self.config["browser"] == "Firefox":
                 self._driver = webdriver.Firefox()
+            elif self.config["browser"] == "Edge":
+                self._driver = webdriver.Edge()
             else:
                 print("Browser does not exist")
 

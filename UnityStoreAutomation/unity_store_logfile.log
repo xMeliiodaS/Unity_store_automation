@@ -46,3 +46,25 @@
 14-07-2024 - 19:40:34: INFO: ----------TESTING login with invalid credentials STARTED----------
 14-07-2024 - 19:40:42: INFO: ---------------TEST COMPLETED---------------
 
+15-07-2024 - 09:12:28: INFO: ----------SETUP for test has started----------
+15-07-2024 - 09:12:53: INFO: ----------TESTING add asset to cart and verify presence STARTED----------
+15-07-2024 - 09:12:53: INFO: Logged in with email: zedanzedanzezob@gmail.com
+15-07-2024 - 09:12:56: INFO: Clicked on asset at index 2
+15-07-2024 - 09:12:59: INFO: Click on Add to cart icon
+
+15-07-2024 - 09:14:02: INFO: ----------SETUP for test has started----------
+15-07-2024 - 09:14:25: INFO: ----------TESTING add asset to cart and verify presence STARTED----------
+15-07-2024 - 09:14:25: INFO: Logged in with email: zedanzedanzezob@gmail.com
+15-07-2024 - 09:14:28: INFO: Clicked on asset at index 2
+15-07-2024 - 09:14:29: INFO: Click on Add to cart icon
+15-07-2024 - 09:14:32: INFO: View cart
+15-07-2024 - 09:14:32: INFO: ---------------TEST COMPLETED---------------
+
+15-07-2024 - 09:25:06: INFO: ----------SETUP for test has started----------
+15-07-2024 - 09:25:29: INFO: ----------TESTING add asset to cart and verify presence STARTED----------
+15-07-2024 - 09:25:29: INFO: Logged in with email: zedanzedanzezob@gmail.com
+15-07-2024 - 09:25:31: INFO: Clicked on asset at index 2
+15-07-2024 - 09:25:33: INFO: Click on Add to cart icon
+15-07-2024 - 09:25:36: INFO: View cart
+15-07-2024 - 09:25:36: INFO: ---------------TEST COMPLETED---------------
+
