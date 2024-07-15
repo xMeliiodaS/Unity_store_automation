@@ -171,9 +171,7 @@ class HomePage(BaseAppPage):
         """
         Processes and sorts the list of asset prices.
         """
-        assets_price_list = self.get_assets_price_list()
-        return sorted(float(price.replace('$', '').replace(',', ''))
-                      for price in assets_price_list)
+        return Utils.sort_asset_prices(self.get_assets_price_list())
 
     def fill_max_min_price_inputs_flow(self, max_price, min_price):
         """

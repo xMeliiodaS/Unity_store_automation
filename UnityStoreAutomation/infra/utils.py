@@ -18,6 +18,16 @@ class Utils:
         return random.randint(1, 7)
 
     @staticmethod
+    def sort_asset_prices(assets_price_list):
+        """
+        Sorts a list of asset prices.
+
+        :param assets_price_list: List of asset prices as strings.
+        :return: List of sorted asset prices as floats.
+        """
+        return sorted(float(price.replace('$', '').replace(',', '')) for price in assets_price_list)
+
+    @staticmethod
     def wait_for_element(action, expected, time_to_sleep, retries):
         """
 
