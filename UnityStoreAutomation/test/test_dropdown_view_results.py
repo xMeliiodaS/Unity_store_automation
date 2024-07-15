@@ -3,7 +3,7 @@ import unittest
 from infra.browser_wrapper import BrowserWrapper
 from infra.config_provider import ConfigProvider
 from infra.logging_setup import logger_setup
-from logic.enum.view_result_count import AssetsPerPageOptions
+from logic.enum.asset_per_page_options import AssetsPerPageOptions
 from logic.home_page import HomePage
 from logic.login_page import LoginPage
 
