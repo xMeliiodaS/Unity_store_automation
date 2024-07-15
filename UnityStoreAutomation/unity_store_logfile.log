@@ -117,3 +117,68 @@
 15-07-2024 - 17:49:53: INFO: View cart
 15-07-2024 - 17:49:54: INFO: --------------------------TEST COMPLETED---------------------------
 
+
+15-07-2024 - 18:09:22: INFO: ------------------------------SETUP------------------------------
+15-07-2024 - 18:09:26: INFO: ----------TESTING filter assets by minimum and maximum prices STARTED----------
+15-07-2024 - 18:09:26: INFO: Setting maximum price input to: 1000
+15-07-2024 - 18:09:26: INFO: Setting minimum price input to: 500
+15-07-2024 - 18:10:10: INFO: ------------------------------SETUP------------------------------
+15-07-2024 - 18:10:15: INFO: ----------TESTING filter assets by minimum and maximum prices STARTED----------
+15-07-2024 - 18:10:15: INFO: Setting maximum price input to: 1000
+15-07-2024 - 18:10:15: INFO: Setting minimum price input to: 500
+15-07-2024 - 18:10:16: INFO: Clicked on the Submit Price button
+15-07-2024 - 18:10:17: INFO: --------------------------TEST COMPLETED---------------------------
+
+
+15-07-2024 - 18:10:39: INFO: ------------------------------SETUP------------------------------
+15-07-2024 - 18:10:43: INFO: ----------TESTING filter assets by minimum and maximum prices STARTED----------
+15-07-2024 - 18:10:43: INFO: Setting maximum price input to: 1000
+15-07-2024 - 18:10:43: INFO: Setting minimum price input to: 500
+15-07-2024 - 18:10:43: INFO: Clicked on the Submit Price button
+15-07-2024 - 18:10:44: INFO: --------------------------TEST COMPLETED---------------------------
+
+
+15-07-2024 - 18:11:59: INFO: ------------------------------SETUP------------------------------
+15-07-2024 - 18:12:03: INFO: ----------TESTING login with invalid credentials STARTED----------
+15-07-2024 - 18:12:10: INFO: --------------------------TEST COMPLETED---------------------------
+
+
+15-07-2024 - 18:12:52: INFO: ------------------------------SETUP------------------------------
+15-07-2024 - 18:12:56: INFO: ----------TESTING login with valid credentials STARTED----------
+15-07-2024 - 18:13:12: INFO: --------------------------TEST COMPLETED---------------------------
+
+
+15-07-2024 - 18:14:18: INFO: ------------------------------SETUP------------------------------
+15-07-2024 - 18:14:40: INFO: ----------TESTING if a category name exists in the asset's path STARTED----------
+15-07-2024 - 18:14:40: INFO: Logged in with email: zedanzedanzezob@gmail.com
+15-07-2024 - 18:14:42: INFO: Clicked on 'Environments' category
+15-07-2024 - 18:14:45: INFO: Clicked on asset at index 2
+15-07-2024 - 18:14:45: INFO: --------------------------TEST COMPLETED---------------------------
+
+
+15-07-2024 - 18:42:49: INFO: ------------------------------SETUP------------------------------
+15-07-2024 - 18:43:07: INFO: ----------TESTING add asset to cart and verify presence STARTED----------
+15-07-2024 - 18:43:07: INFO: Logged in with email: zedanzedanzezob@gmail.com
+15-07-2024 - 18:43:10: INFO: Clicked on asset at index 2
+15-07-2024 - 18:43:11: INFO: Click on Add to cart icon
+15-07-2024 - 18:43:14: INFO: View cart
+15-07-2024 - 18:43:14: INFO: --------------------------TEST COMPLETED---------------------------
+
+
+15-07-2024 - 18:59:24: INFO: ------------------------------SETUP------------------------------
+15-07-2024 - 18:59:40: INFO: ----------TESTING add asset to cart and verify presence STARTED----------
+15-07-2024 - 18:59:40: INFO: Logged in with email: zedanzedanzezob@gmail.com
+15-07-2024 - 18:59:43: INFO: Clicked on asset at index 2
+15-07-2024 - 18:59:44: INFO: Click on Add to cart icon
+15-07-2024 - 18:59:47: INFO: View cart
+15-07-2024 - 18:59:47: INFO: --------------------------TEST COMPLETED---------------------------
+
+
+15-07-2024 - 19:01:55: INFO: ------------------------------SETUP------------------------------
+15-07-2024 - 19:01:59: INFO: ----------TESTING filter assets by minimum and maximum prices STARTED----------
+15-07-2024 - 19:01:59: INFO: Setting maximum price input to: 1000
+15-07-2024 - 19:02:00: INFO: Setting minimum price input to: 500
+15-07-2024 - 19:02:00: INFO: Clicked on the Submit Price button
+15-07-2024 - 19:02:01: INFO: --------------------------TEST COMPLETED---------------------------
+
+

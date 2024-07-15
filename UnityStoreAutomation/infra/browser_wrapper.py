@@ -36,9 +36,9 @@ class BrowserWrapper:
                 print("Browser does not exist")
 
             self._driver.get(url)
-            # Adjust the zoom level of the page
-
+            self._driver.maximize_window()
             return self._driver
+
         except c.WebDriverException as e:
             print("Could not find web driver:", e)
 

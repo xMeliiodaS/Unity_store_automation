@@ -92,15 +92,12 @@ class BaseAppPage(BasePage):
             EC.element_to_be_clickable((By.XPATH, self.VIEW_CART_BUTTON))).click()
         logging.info("View cart")
 
-    def click_remove_all_assets_from_cart_button(self):
+    def click_remove_asset_from_cart_button(self):
         """
         This method waits for the remove asset button to be clickable and then clicks on it.
         """
-        elements = WebDriverWait(self._driver, 10).until(
-            EC.presence_of_all_elements_located((By.XPATH, self.REMOVE_ASSET_FROM_CART_BUTTON)))
-        time.sleep(3)
-        for element in elements:
-            element.click()
+        WebDriverWait(self._driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, self.REMOVE_ASSET_FROM_CART_BUTTON))).click()
 
     def click_on_personal_settings_button(self):
         """

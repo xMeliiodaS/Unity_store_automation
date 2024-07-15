@@ -1,4 +1,5 @@
 import logging
+import time
 import unittest
 from infra.browser_wrapper import BrowserWrapper
 from infra.config_provider import ConfigProvider
@@ -35,7 +36,8 @@ class TestCartPage(unittest.TestCase):
          the cart and quitting the WebDriver instance.
         """
         self.cart_page = CartPage(self.driver)
-        self.cart_page.click_remove_all_assets_from_cart_button()
+        self.cart_page.click_remove_asset_from_cart_button()
+        time.sleep(10)
         self.driver.quit()
 
     def test_add_to_cart_successful(self):

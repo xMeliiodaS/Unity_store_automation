@@ -23,6 +23,7 @@ class TestMinMaxPrice(unittest.TestCase):
         self.driver = self.browser.get_driver(self.config["url"])
 
         self.home_page = HomePage(self.driver)
+        self.home_page.click_on_close_cookies_button()
 
     def test_min_max_price_filter(self):
         """
