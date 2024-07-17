@@ -37,7 +37,6 @@ class TestCartPage(unittest.TestCase):
         """
         self.cart_page = CartPage(self.driver)
         self.cart_page.click_remove_asset_from_cart_button()
-        time.sleep(10)
         self.driver.quit()
 
     def test_add_to_cart_successful(self):

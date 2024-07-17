@@ -182,3 +182,22 @@
 15-07-2024 - 19:02:01: INFO: --------------------------TEST COMPLETED---------------------------
 
 
+16-07-2024 - 10:59:50: INFO: ------------------------------SETUP------------------------------
+16-07-2024 - 11:00:25: INFO: ----------TESTING add asset to cart and verify presence STARTED----------
+16-07-2024 - 11:00:25: INFO: Logged in with email: zedanzedanzezob@gmail.com
+16-07-2024 - 11:00:27: INFO: Clicked on asset at index 2
+16-07-2024 - 11:00:30: INFO: Click on Add to cart icon
+16-07-2024 - 11:00:33: INFO: View cart
+16-07-2024 - 11:00:33: INFO: --------------------------TEST COMPLETED---------------------------
+
+
+16-07-2024 - 11:15:23: INFO: ------------------------------SETUP------------------------------
+16-07-2024 - 11:50:32: INFO: ------------------------------SETUP------------------------------
+16-07-2024 - 11:50:59: INFO: ----------TESTING add asset to cart and verify presence STARTED----------
+16-07-2024 - 11:50:59: INFO: Logged in with email: zedanzedanzezob@gmail.com
+16-07-2024 - 11:51:02: INFO: Clicked on asset at index 2
+16-07-2024 - 11:51:04: INFO: Click on Add to cart icon
+16-07-2024 - 11:51:07: INFO: View cart
+16-07-2024 - 11:51:07: INFO: --------------------------TEST COMPLETED---------------------------
+
+
