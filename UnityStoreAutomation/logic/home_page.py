@@ -33,16 +33,16 @@ class HomePage(BaseAppPage):
         :param driver: The WebDriver instance to use for browser interactions.
         """
         super().__init__(driver)
-        try:
-            self._min_price_input = WebDriverWait(self._driver, 10).until(
-                EC.presence_of_element_located((By.XPATH, self.MIN_PRICE_INPUT)))
-            self._max_price_input = WebDriverWait(self._driver, 10).until(
-                EC.presence_of_element_located((By.XPATH, self.MAX_PRICE_INPUT)))
-            self._view_result_button = WebDriverWait(self._driver, 10).until(
-                EC.presence_of_element_located((By.XPATH, self.VIEW_RESULT_DROPDOWN_BUTTON)))
-
-        except NoSuchElementException as e:
-            print("Element not found nigga", e)
+        # try:
+        #     self._min_price_input = WebDriverWait(self._driver, 10).until(
+        #         EC.presence_of_element_located((By.XPATH, self.MIN_PRICE_INPUT)))
+        #     self._max_price_input = WebDriverWait(self._driver, 10).until(
+        #         EC.presence_of_element_located((By.XPATH, self.MAX_PRICE_INPUT)))
+        #     self._view_result_button = WebDriverWait(self._driver, 10).until(
+        #         EC.presence_of_element_located((By.XPATH, self.VIEW_RESULT_DROPDOWN_BUTTON)))
+        #
+        # except NoSuchElementException as e:
+        #     print("Element not found nigga", e)
 
     def click_on_asset_link_by_index(self, index):
         """

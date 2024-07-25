@@ -14,7 +14,8 @@ class ConfigProvider:
         :return: The loaded configuration as a dictionary.
         """
         try:
-            with open('../config.json', 'r') as f:
+            # Since we are using with modules with can't use relative path, so changed it to absolute path
+            with open('D:\\Users\\User\\Desktop\\Unity_store_automation\\UnityStoreAutomation\\config.json', 'r') as f:
                 return json.load(f)
         except FileNotFoundError:
             print(f"File not found. Starting with an empty library.")
