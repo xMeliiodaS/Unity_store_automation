@@ -216,3 +216,44 @@
 
 
 25-07-2024 - 10:37:54: INFO: ------------------------------SETUP------------------------------
+25-07-2024 - 10:54:11: INFO: ------------------------------SETUP------------------------------
+25-07-2024 - 10:54:32: INFO: ----------TESTING assets count change after dropdown selection STARTED----------
+25-07-2024 - 10:54:32: INFO: Logged in with email: zedanzedanzezob@gmail.com
+25-07-2024 - 10:54:32: INFO: Clicked on the 'View Results' dropdown button
+25-07-2024 - 10:54:32: INFO: Selected option from dropdown with value '72'
+25-07-2024 - 10:54:33: INFO: --------------------------TEST COMPLETED---------------------------
+
+
+25-07-2024 - 10:54:34: INFO: ------------------------------SETUP------------------------------
+25-07-2024 - 10:54:55: INFO: ----------TESTING assets count match chosen option from dropdown STARTED----------
+25-07-2024 - 10:54:55: INFO: Logged in with email: zedanzedanzezob@gmail.com
+25-07-2024 - 10:54:56: INFO: Clicked on the 'View Results' dropdown button
+25-07-2024 - 10:54:56: INFO: Selected option from dropdown with value '72'
+25-07-2024 - 10:54:57: INFO: --------------------------TEST COMPLETED---------------------------
+
+
+25-07-2024 - 11:00:13: INFO: ------------------------------SETUP------------------------------
+25-07-2024 - 11:00:32: INFO: ----------TESTING add asset to cart and verify presence STARTED----------
+25-07-2024 - 11:00:32: INFO: Logged in with email: zedanzedanzezob@gmail.com
+25-07-2024 - 11:00:34: INFO: Clicked on asset at index 2
+25-07-2024 - 11:00:36: INFO: Click on Add to cart icon
+25-07-2024 - 11:00:39: INFO: View cart
+25-07-2024 - 11:00:39: INFO: --------------------------TEST COMPLETED---------------------------
+
+
+25-07-2024 - 11:04:08: INFO: ------------------------------SETUP------------------------------
+25-07-2024 - 11:04:29: INFO: ----------TESTING assets count change after dropdown selection STARTED----------
+25-07-2024 - 11:04:29: INFO: Logged in with email: zedanzedanzezob@gmail.com
+25-07-2024 - 11:04:30: INFO: Clicked on the 'View Results' dropdown button
+25-07-2024 - 11:04:30: INFO: Selected option from dropdown with value '72'
+25-07-2024 - 11:04:31: INFO: --------------------------TEST COMPLETED---------------------------
+
+
+25-07-2024 - 11:04:32: INFO: ------------------------------SETUP------------------------------
+25-07-2024 - 11:04:54: INFO: ----------TESTING assets count match chosen option from dropdown STARTED----------
+25-07-2024 - 11:04:54: INFO: Logged in with email: zedanzedanzezob@gmail.com
+25-07-2024 - 11:04:54: INFO: Clicked on the 'View Results' dropdown button
+25-07-2024 - 11:04:55: INFO: Selected option from dropdown with value '72'
+25-07-2024 - 11:04:56: INFO: --------------------------TEST COMPLETED---------------------------
+
+
