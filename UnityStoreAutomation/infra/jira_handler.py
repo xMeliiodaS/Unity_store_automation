@@ -24,7 +24,3 @@ class JiraHandler:
         }
 
         return self.auth_jira.create_issue(fields=issue_dict)
-
-
-a = JiraHandler()
-a.create_issue("AT", "first try via code", "hey")

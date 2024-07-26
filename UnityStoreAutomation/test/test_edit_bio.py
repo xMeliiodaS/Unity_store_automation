@@ -7,6 +7,7 @@ from infra.logging_setup import logger_setup
 from logic.home_page import HomePage
 from logic.login_page import LoginPage
 from logic.personal_settings_page import PersonalSettingsPage
+from test.utils import Utils
 
 
 class TestEditBio(unittest.TestCase):
@@ -53,7 +54,6 @@ class TestEditBio(unittest.TestCase):
 
         logging.info("--------------------------TEST COMPLETED---------------------------\n\n")
 
-
     def test_edit_bio_with_exceeding_char_limit(self):
         """
         Test editing the bio with invalid data (e.g., exceeding character limit).
@@ -71,13 +71,11 @@ class TestEditBio(unittest.TestCase):
             logging.info("--------------------------TEST COMPLETED---------------------------\n\n")
 
         except AssertionError as e:
-            # Create a Jira issue if the assertion fails
-            issue_summary = f"Assertion failed in test: {self.id()}"
-            issue_description = f"Test case {self.id()} failed with assertion error: {str(e)}"
-            self.jira_handler.create_issue(
-                project_key="AT",  # Adjust the project key as necessary
-                summary=issue_summary,
-                description=issue_description,
+            Utils.create_jira_issue(
+                jira_handler=self.jira_handler,
+                test_id=self.id(),
+                exception=e,
+                project_key="AT",
                 issue_type="Bug"
             )
             raise
