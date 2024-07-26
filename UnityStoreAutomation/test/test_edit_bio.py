@@ -2,6 +2,7 @@ import logging
 import unittest
 from infra.browser_wrapper import BrowserWrapper
 from infra.config_provider import ConfigProvider
+from infra.jira_handler import JiraHandler
 from infra.logging_setup import logger_setup
 from logic.home_page import HomePage
 from logic.login_page import LoginPage
@@ -34,6 +35,8 @@ class TestEditBio(unittest.TestCase):
         self.personal_settings_page = PersonalSettingsPage(self.driver)
         self.personal_settings_page.click_on_edit_bio_button()
 
+        self.jira_handler = JiraHandler()  # Initialize JiraHandler
+
     def test_edit_bio_successful(self):
         """
         Test the login functionality with valid credentials.
@@ -50,6 +53,7 @@ class TestEditBio(unittest.TestCase):
 
         logging.info("--------------------------TEST COMPLETED---------------------------\n\n")
 
+
     def test_edit_bio_with_exceeding_char_limit(self):
         """
         Test editing the bio with invalid data (e.g., exceeding character limit).
@@ -57,12 +61,26 @@ class TestEditBio(unittest.TestCase):
         logging.info("----------TESTING edit bio with exceeding character limit STARTED----------")
         logging.info(f"Logged in with email: {self.config['email']}")
 
-        # Act
-        self.personal_settings_page.edit_bio_flow(self.config["bio_text_exceeding_limit"] * 201)
+        try:
+            # Act
+            text_to_insert = self.config["bio_text"]
+            self.personal_settings_page.edit_bio_flow(text_to_insert)
 
-        # Assert
-        self.assertLessEqual(len(self.personal_settings_page.get_current_bio_text()),
-                             self.config["Exceeding_char_limit"])
+            # Assert
+            self.assertNotEqual(text_to_insert, self.personal_settings_page.get_current_bio_text())
+            logging.info("--------------------------TEST COMPLETED---------------------------\n\n")
+
+        except AssertionError as e:
+            # Create a Jira issue if the assertion fails
+            issue_summary = f"Assertion failed in test: {self.id()}"
+            issue_description = f"Test case {self.id()} failed with assertion error: {str(e)}"
+            self.jira_handler.create_issue(
+                project_key="AT",  # Adjust the project key as necessary
+                summary=issue_summary,
+                description=issue_description,
+                issue_type="Bug"
+            )
+            raise
 
         logging.info("--------------------------TEST COMPLETED---------------------------\n\n")
 

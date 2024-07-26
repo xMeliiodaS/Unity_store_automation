@@ -258,3 +258,10 @@
 
 
 26-07-2024 - 10:33:54: INFO: ------------------------------SETUP------------------------------
+26-07-2024 - 11:13:35: INFO: ------------------------------SETUP------------------------------
+26-07-2024 - 11:14:06: INFO: Clicked on the personal settings button
+26-07-2024 - 11:14:06: INFO: Clicked on the Edit Bio button
+26-07-2024 - 11:14:07: INFO: ----------TESTING edit bio with exceeding character limit STARTED----------
+26-07-2024 - 11:14:07: INFO: Logged in with email: zedanzedanzezob@gmail.com
+26-07-2024 - 11:14:08: INFO: Filled the bio input
+26-07-2024 - 11:14:08: INFO: Clicked on the 'Save Bio' button after changing the bio text
