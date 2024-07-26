@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+    <testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="27.192"
+               timestamp="2024-07-25T11:00:12.552174" hostname="DESKTOP-IGNAR84">
+        <testcase classname="test_add_asset_to_cart.TestCartPage" name="test_add_to_cart_successful" time="26.699"/>
+    </testsuite>
+</testsuites>

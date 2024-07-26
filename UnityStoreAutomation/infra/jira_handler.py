@@ -27,4 +27,4 @@ class JiraHandler:
 
 
 a = JiraHandler()
-a.create_issue("SCRUM", "first try via code", "hey")
+a.create_issue("AT", "first try via code", "hey")

@@ -1,0 +1,6 @@
+[32mINFO    [0m root:test_add_to_my_assets.py:22 ------------------------------SETUP------------------------------
+[32mINFO    [0m root:home_page.py:112 Clicked on the 'Free Assets' button
+[32mINFO    [0m root:home_page.py:71 Clicked on asset at index 16
+[32mINFO    [0m root:test_add_to_my_assets.py:41 ----------TESTING add asset to 'My Assets' successfully STARTED----------
+[32mINFO    [0m root:test_add_to_my_assets.py:42 Logged in with email: zedanzedanzezob@gmail.com
+[32mINFO    [0m root:asset_page.py:73 Clicked on the 'Add to My Assets' button

@@ -1,0 +1,7 @@
+[32mINFO    [0m root:test_add_asset_to_cart.py:23 ------------------------------SETUP------------------------------
+[32mINFO    [0m root:test_add_asset_to_cart.py:46 ----------TESTING add asset to cart and verify presence STARTED----------
+[32mINFO    [0m root:test_add_asset_to_cart.py:47 Logged in with email: zedanzedanzezob@gmail.com
+[32mINFO    [0m root:home_page.py:71 Clicked on asset at index 2
+[32mINFO    [0m root:asset_page.py:37 Click on Add to cart icon
+[32mINFO    [0m root:base_app_page.py:93 View cart
+[32mINFO    [0m root:test_add_asset_to_cart.py:61 --------------------------TEST COMPLETED---------------------------
