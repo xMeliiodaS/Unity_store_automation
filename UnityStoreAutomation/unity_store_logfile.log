@@ -265,3 +265,54 @@
 26-07-2024 - 11:14:07: INFO: Logged in with email: zedanzedanzezob@gmail.com
 26-07-2024 - 11:14:08: INFO: Filled the bio input
 26-07-2024 - 11:14:08: INFO: Clicked on the 'Save Bio' button after changing the bio text
+27-07-2024 - 17:57:43: INFO: ------------------------------SETUP------------------------------
+27-07-2024 - 17:58:11: INFO: Clicked on the personal settings button
+27-07-2024 - 17:58:11: INFO: Clicked on the Edit Bio button
+27-07-2024 - 17:58:12: INFO: ----------TESTING edit bio with exceeding character limit STARTED----------
+27-07-2024 - 17:58:12: INFO: Logged in with email: zedanzedanzezob@gmail.com
+27-07-2024 - 17:58:13: INFO: Filled the bio input
+27-07-2024 - 17:58:13: INFO: Clicked on the 'Save Bio' button after changing the bio text
+27-07-2024 - 17:58:16: INFO: --------------------------TEST COMPLETED---------------------------
+
+
+27-07-2024 - 17:59:42: INFO: ------------------------------SETUP------------------------------
+27-07-2024 - 18:00:09: INFO: Clicked on the personal settings button
+27-07-2024 - 18:00:10: INFO: Clicked on the Edit Bio button
+27-07-2024 - 18:00:10: INFO: ----------TESTING edit bio with exceeding character limit STARTED----------
+27-07-2024 - 18:00:10: INFO: Logged in with email: zedanzedanzezob@gmail.com
+27-07-2024 - 18:00:12: INFO: Filled the bio input
+27-07-2024 - 18:00:12: INFO: Clicked on the 'Save Bio' button after changing the bio text
+27-07-2024 - 18:00:59: INFO: --------------------------TEST COMPLETED---------------------------
+
+
+27-07-2024 - 18:03:41: INFO: ------------------------------SETUP------------------------------
+27-07-2024 - 18:04:07: INFO: Clicked on the personal settings button
+27-07-2024 - 18:04:08: INFO: Clicked on the Edit Bio button
+27-07-2024 - 18:04:08: INFO: ----------TESTING edit bio with exceeding character limit STARTED----------
+27-07-2024 - 18:04:08: INFO: Logged in with email: zedanzedanzezob@gmail.com
+27-07-2024 - 18:04:09: INFO: Filled the bio input
+27-07-2024 - 18:04:09: INFO: Clicked on the 'Save Bio' button after changing the bio text
+27-07-2024 - 18:06:15: INFO: ------------------------------SETUP------------------------------
+27-07-2024 - 18:06:43: INFO: Clicked on the personal settings button
+27-07-2024 - 18:06:43: INFO: Clicked on the Edit Bio button
+27-07-2024 - 18:06:44: INFO: ----------TESTING edit bio with exceeding character limit STARTED----------
+27-07-2024 - 18:06:44: INFO: Logged in with email: zedanzedanzezob@gmail.com
+27-07-2024 - 18:06:45: INFO: Filled the bio input
+27-07-2024 - 18:06:46: INFO: Clicked on the 'Save Bio' button after changing the bio text
+27-07-2024 - 18:08:00: INFO: ------------------------------SETUP------------------------------
+27-07-2024 - 18:08:28: INFO: Clicked on the personal settings button
+27-07-2024 - 18:08:29: INFO: Clicked on the Edit Bio button
+27-07-2024 - 18:11:56: INFO: ------------------------------SETUP------------------------------
+27-07-2024 - 18:12:25: INFO: Clicked on the personal settings button
+27-07-2024 - 18:12:25: INFO: Clicked on the Edit Bio button
+27-07-2024 - 18:12:26: INFO: ----------TESTING edit bio with exceeding character limit STARTED----------
+27-07-2024 - 18:12:26: INFO: Logged in with email: zedanzedanzezob@gmail.com
+27-07-2024 - 18:12:27: INFO: Filled the bio input
+27-07-2024 - 18:12:27: INFO: Clicked on the 'Save Bio' button after changing the bio text
+27-07-2024 - 18:14:56: INFO: ------------------------------SETUP------------------------------
+27-07-2024 - 18:15:25: INFO: Clicked on the personal settings button
+27-07-2024 - 18:15:25: INFO: Clicked on the Edit Bio button
+27-07-2024 - 18:15:26: INFO: ----------TESTING edit bio with exceeding character limit STARTED----------
+27-07-2024 - 18:15:26: INFO: Logged in with email: zedanzedanzezob@gmail.com
+27-07-2024 - 18:15:27: INFO: Filled the bio input
+27-07-2024 - 18:15:27: INFO: Clicked on the 'Save Bio' button after changing the bio text

@@ -37,6 +37,7 @@ class TestEditBio(unittest.TestCase):
         self.personal_settings_page.click_on_edit_bio_button()
 
         self.jira_handler = JiraHandler()  # Initialize JiraHandler
+        self._test_errors = []
 
     def test_edit_bio_successful(self):
         """
@@ -71,14 +72,8 @@ class TestEditBio(unittest.TestCase):
             logging.info("--------------------------TEST COMPLETED---------------------------\n\n")
 
         except AssertionError as e:
-            Utils.create_jira_issue(
-                jira_handler=self.jira_handler,
-                test_id=self.id(),
-                exception=e,
-                project_key="AT",
-                issue_type="Bug"
-            )
-            raise
+            self._test_errors.append(e)
+            raise AssertionError
 
         logging.info("--------------------------TEST COMPLETED---------------------------\n\n")
 
@@ -86,6 +81,16 @@ class TestEditBio(unittest.TestCase):
         """
         Clean up after each test case by quitting the WebDriver instance.
         """
+        if self._test_errors:
+            error = self._test_errors[0]
+            Utils.create_jira_issue(
+                jira_handler=self.jira_handler,
+                test_id=self.id(),
+                exception=error,
+                project_key="AT",
+                issue_type="Bug"
+            )
+
         self.driver.quit()
 
 
